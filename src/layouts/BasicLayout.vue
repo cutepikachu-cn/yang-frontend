@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { storeToRefs } from "pinia";
+import { useTabbarStore } from "@/store/tabbar";
 
-const active = ref(2);
+const { active } = storeToRefs(useTabbarStore());
 
 const tabItemList = [
   {
