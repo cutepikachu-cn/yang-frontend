@@ -8,6 +8,7 @@ import CommunityView from "@/views/Community/CommunityView.vue";
 import UserView from "@/views/User/UserView.vue";
 import PageLayout from "@/layouts/PageLayout.vue";
 import AboutView from "@/views/About/AboutView.vue";
+import MonitorView from "@/views/Monitor/MonitorView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   { path: "", redirect: "/home" },
@@ -32,6 +33,7 @@ const routes: Array<RouteRecordRaw> = [
     component: PageLayout,
     children: [
       { path: "/about", component: AboutView, meta: { title: "关于" } },
+      { path: "/monitor", component: MonitorView, meta: { title: "数据监控" } },
       { path: "", redirect: "/" },
     ],
   },
