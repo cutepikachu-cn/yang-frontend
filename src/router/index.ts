@@ -10,6 +10,7 @@ import PageLayout from "@/layouts/PageLayout.vue";
 import AboutView from "@/views/About/AboutView.vue";
 import MonitorView from "@/views/Monitor/MonitorView.vue";
 import AssistantView from "@/views/Assistant/AssistantView.vue";
+import CourseView from "@/views/Course/CourseView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   { path: "", redirect: "/home" },
@@ -40,6 +41,7 @@ const routes: Array<RouteRecordRaw> = [
         component: AssistantView,
         meta: { title: "智能问答" },
       },
+      { path: "/course", component: CourseView, meta: { title: "课程" } },
       { path: "", redirect: "/" },
     ],
   },
