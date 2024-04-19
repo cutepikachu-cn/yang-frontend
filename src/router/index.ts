@@ -32,9 +32,9 @@ const routes: Array<RouteRecordRaw> = [
     component: PageLayout,
     children: [
       { path: "/about", component: AboutView, meta: { title: "关于" } },
-      { path: "", redirect: "/" ,
-    ,
-  ,
+      { path: "", redirect: "/" },
+    ],
+  },
 ];
 
 const router = createRouter({
