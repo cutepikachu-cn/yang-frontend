@@ -1,12 +1,19 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { UserLoginRequest } from "@/modules/api";
+import { useUserStore } from "@/store/user";
+import { useRoute } from "vue-router";
+
+const { userLogin } = useUserStore();
+const route = useRoute();
+const redirectUrl = route.query.redirectURL as string;
 
 const active = ref(0);
 
 const userAccount = ref("cutepikachu");
 const userPassword = ref("cutepikachu");
-const onSubmit = (values: { userAccount: string; userPassword: string }) => {
-  console.log(values);
+const onSubmit = (values: UserLoginRequest) => {
+  userLogin(values, redirectUrl);
 };
 </script>
 

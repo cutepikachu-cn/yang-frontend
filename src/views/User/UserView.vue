@@ -1,23 +1,27 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
+import { useUserStore } from "@/store/user";
+import { LoginUserVO } from "@/modules/api";
+
+const { getLoginUser, userLogout } = useUserStore();
 
 const router = useRouter();
 
-const userInfo = ref({
-  id: 1,
-  userNickname: "笨蛋皮卡丘",
-  userAvatar: "http://source.cute-pikachu.cn/img/avatar.webp",
-  userRole: "farm",
-});
+const userInfo = ref<LoginUserVO>({});
 
 onMounted(async () => {
-  return;
+  userInfo.value = (await getLoginUser()) || {
+    id: 0,
+    userNickname: "笨蛋皮卡丘",
+    userAvatar: "http://source.cute-pikachu.cn/img/avatar.webp",
+    userRole: "farm",
+  };
 });
 
 const active = ref(0);
 
-const actions = [{ text: "关于" }];
+const actions = [{ text: "关于" }, { text: "退出登录" }];
 
 const onSelect = (
   action: {
@@ -29,9 +33,12 @@ const onSelect = (
   },
   index: number
 ) => {
-  console.log(action);
+  // console.log(action);
   if (index === 0) {
     router.push("/about");
+  }
+  if (index == 1) {
+    userLogout();
   }
 };
 </script>
