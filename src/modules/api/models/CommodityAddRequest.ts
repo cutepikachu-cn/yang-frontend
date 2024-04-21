@@ -7,6 +7,7 @@ export type CommodityAddRequest = {
   isSale: number;
   imgUrl: string;
   detail: string;
+  stock: number;
   price: number;
 };
 

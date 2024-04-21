@@ -9,6 +9,7 @@ export type Commodity = {
   isSale?: number;
   imgUrl?: string;
   detail?: string;
+  stock?: number;
   price?: number;
   visitNum?: number;
   shareNum?: number;
