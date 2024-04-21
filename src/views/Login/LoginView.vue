@@ -3,6 +3,7 @@ import { ref } from "vue";
 import { UserLoginRequest } from "@/modules/api";
 import { useUserStore } from "@/store/user";
 import { useRoute } from "vue-router";
+import lodash from "lodash";
 
 const { userLogin } = useUserStore();
 const route = useRoute();
@@ -12,9 +13,15 @@ const active = ref(0);
 
 const userAccount = ref("cutepikachu");
 const userPassword = ref("cutepikachu");
-const onSubmit = (values: UserLoginRequest) => {
-  userLogin(values, redirectUrl);
-};
+const onSubmit = lodash.throttle(
+  (values: UserLoginRequest) => {
+    userLogin(values, redirectUrl);
+  },
+  1000,
+  {
+    trailing: false,
+  }
+);
 </script>
 
 <template>

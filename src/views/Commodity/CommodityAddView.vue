@@ -6,6 +6,7 @@ import {
   FileControllerService,
 } from "@/modules/api";
 import { showFailToast, showSuccessToast } from "vant";
+import lodash from "lodash";
 
 const fileValue = ref([]);
 const afterRead = (file: never) => {
@@ -32,24 +33,30 @@ const resetForm = () => {
   fileValue.value = [];
 };
 
-const onSubmit = async () => {
-  const file = fileValue.value[0]?.file;
-  const fileUpload = await FileControllerService.uploadFile("COMMODITY_IMG", {
-    file,
-  });
-  if (fileUpload.code !== 0) {
-    showFailToast("添加商品失败");
-    return;
+const onSubmit = lodash.throttle(
+  async () => {
+    const file = fileValue.value[0]?.file;
+    const fileUpload = await FileControllerService.uploadFile("COMMODITY_IMG", {
+      file,
+    });
+    if (fileUpload.code !== 0) {
+      showFailToast("添加商品失败");
+      return;
+    }
+    form.value.imgUrl = fileUpload.data as string;
+    const res = await CommodityControllerService.addCommodity(form.value);
+    if (res.code !== 0) {
+      showFailToast("添加商品失败");
+      return;
+    }
+    resetForm();
+    showSuccessToast("添加商品成功");
+  },
+  1000,
+  {
+    trailing: false,
   }
-  form.value.imgUrl = fileUpload.data as string;
-  const res = await CommodityControllerService.addCommodity(form.value);
-  if (res.code !== 0) {
-    showFailToast("添加商品失败");
-    return;
-  }
-  resetForm();
-  showSuccessToast("添加商品成功");
-};
+);
 </script>
 
 <template @submit="onSubmit">
