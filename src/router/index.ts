@@ -16,6 +16,7 @@ import CommodityView from "@/views/Commodity/CommodityView.vue";
 import CommodityManageView from "@/views/Commodity/CommodityListView.vue";
 import CommodityAddView from "@/views/Commodity/CommodityAddView.vue";
 import UserInfoView from "@/views/User/UserInfoView.vue";
+import UserRegisterView from "@/views/User/UserRegisterView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   { path: "", redirect: "/home" },
@@ -67,6 +68,11 @@ const routes: Array<RouteRecordRaw> = [
         path: "self",
         component: UserInfoView,
         meta: { title: "用户信息" },
+      },
+      {
+        path: "register",
+        component: UserRegisterView,
+        meta: { title: "注册" },
       },
       { path: "", redirect: "/" },
     ],
