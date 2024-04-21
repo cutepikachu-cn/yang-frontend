@@ -42,6 +42,7 @@ const onLoad = async () => {
       block
       icon="custom"
       icon-prefix="fa-duotone fa-circle-plus"
+      to="/commodity/add"
     >
       添加商品
     </van-button>

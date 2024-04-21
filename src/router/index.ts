@@ -14,6 +14,7 @@ import CourseView from "@/views/Course/CourseView.vue";
 import LoginView from "@/views/Login/LoginView.vue";
 import CommodityView from "@/views/Commodity/CommodityView.vue";
 import CommodityManageView from "@/views/Commodity/CommodityListView.vue";
+import CommodityAddView from "@/views/Commodity/CommodityAddView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   { path: "", redirect: "/home" },
@@ -53,6 +54,11 @@ const routes: Array<RouteRecordRaw> = [
             path: "list",
             component: CommodityManageView,
             meta: { title: "商品管理" },
+          },
+          {
+            path: "add",
+            component: CommodityAddView,
+            meta: { title: "添加商品" },
           },
         ],
       },
