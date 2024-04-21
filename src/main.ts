@@ -5,6 +5,10 @@ import "./modules/axiosConfig";
 import { createPinia } from "pinia";
 import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
 
+import "vant/es/toast/style";
+import "vant/es/dialog/style";
+import "vant/es/notify/style";
+import "vant/es/image-preview/style";
 import "./main.scss";
 import "@/assets/FontAwesome/css/fontawesome.min.css";
 import "@/assets/FontAwesome/css/duotone.min.css";

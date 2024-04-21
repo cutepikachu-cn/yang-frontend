@@ -16,6 +16,7 @@ const form = ref<CommodityAddRequest>({
   isSale: 0,
   imgUrl: "",
   detail: "",
+  stock: 0,
   price: 0,
 });
 
@@ -25,12 +26,13 @@ const resetForm = () => {
     isSale: 0,
     imgUrl: "",
     detail: "",
+    stock: 0,
     price: 0,
   };
   fileValue.value = [];
 };
 
-const onSubmit = async (values: never) => {
+const onSubmit = async () => {
   const file = fileValue.value[0]?.file;
   const fileUpload = await FileControllerService.uploadFile("COMMODITY_IMG", {
     file,
@@ -106,6 +108,23 @@ const onSubmit = async (values: never) => {
             trigger: 'onBlur',
             formatter: (value) =>
               (form.price = Number(Number(value).toFixed(2))),
+          },
+        ]"
+      />
+      <van-field
+        name="stock"
+        label="商品库存"
+        v-model="form.stock"
+        type="digit"
+        required
+        :rules="[
+          { required: true, message: '请输入商品库存' },
+          {
+            trigger: 'onBlur',
+            formatter: (value) => {
+              value = Number(value);
+              form.stock = value >= 0 ? value : 0;
+            },
           },
         ]"
       />
