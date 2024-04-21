@@ -18,4 +18,3 @@ export type Commodity = {
   updateTime?: string;
   isDelete?: number;
 };
-

@@ -27,170 +27,179 @@ export class UserControllerService {
    * @throws ApiError
    */
   public static updateUser(
-    requestBody: UserUpdateRequest,
+    requestBody: UserUpdateRequest
   ): CancelablePromise<BaseResponseBoolean> {
     return __request(OpenAPI, {
-      method: 'POST',
-      url: '/user/update',
+      method: "POST",
+      url: "/user/update",
       body: requestBody,
-      mediaType: 'application/json',
+      mediaType: "application/json",
     });
   }
+
   /**
    * @param requestBody
    * @returns BaseResponseBoolean OK
    * @throws ApiError
    */
   public static updateSelf(
-    requestBody: UserUpdateSelfRequest,
+    requestBody: UserUpdateSelfRequest
   ): CancelablePromise<BaseResponseBoolean> {
     return __request(OpenAPI, {
-      method: 'POST',
-      url: '/user/update/self',
+      method: "POST",
+      url: "/user/update/self",
       body: requestBody,
-      mediaType: 'application/json',
+      mediaType: "application/json",
     });
   }
+
   /**
    * @param requestBody
    * @returns BaseResponseLong OK
    * @throws ApiError
    */
   public static userRegister(
-    requestBody: UserRegisterRequest,
+    requestBody: UserRegisterRequest
   ): CancelablePromise<BaseResponseLong> {
     return __request(OpenAPI, {
-      method: 'POST',
-      url: '/user/register',
+      method: "POST",
+      url: "/user/register",
       body: requestBody,
-      mediaType: 'application/json',
+      mediaType: "application/json",
     });
   }
+
   /**
    * @returns BaseResponseBoolean OK
    * @throws ApiError
    */
   public static userLogout(): CancelablePromise<BaseResponseBoolean> {
     return __request(OpenAPI, {
-      method: 'POST',
-      url: '/user/logout',
+      method: "POST",
+      url: "/user/logout",
     });
   }
+
   /**
    * @param requestBody
    * @returns BaseResponseLoginUserVO OK
    * @throws ApiError
    */
   public static userLogin(
-    requestBody: UserLoginRequest,
+    requestBody: UserLoginRequest
   ): CancelablePromise<BaseResponseLoginUserVO> {
     return __request(OpenAPI, {
-      method: 'POST',
-      url: '/user/login',
+      method: "POST",
+      url: "/user/login",
       body: requestBody,
-      mediaType: 'application/json',
+      mediaType: "application/json",
     });
   }
+
   /**
    * @param requestBody
    * @returns BaseResponsePageUser OK
    * @throws ApiError
    */
   public static listUserByPage(
-    requestBody: UserQueryRequest,
+    requestBody: UserQueryRequest
   ): CancelablePromise<BaseResponsePageUser> {
     return __request(OpenAPI, {
-      method: 'POST',
-      url: '/user/list/page',
+      method: "POST",
+      url: "/user/list/page",
       body: requestBody,
-      mediaType: 'application/json',
+      mediaType: "application/json",
     });
   }
+
   /**
    * @param requestBody
    * @returns BaseResponsePageUserVO OK
    * @throws ApiError
    */
   public static listUserVoByPage(
-    requestBody: UserQueryRequest,
+    requestBody: UserQueryRequest
   ): CancelablePromise<BaseResponsePageUserVO> {
     return __request(OpenAPI, {
-      method: 'POST',
-      url: '/user/list/page/vo',
+      method: "POST",
+      url: "/user/list/page/vo",
       body: requestBody,
-      mediaType: 'application/json',
+      mediaType: "application/json",
     });
   }
+
   /**
    * @param requestBody
    * @returns BaseResponseBoolean OK
    * @throws ApiError
    */
   public static deleteUser(
-    requestBody: DeleteRequest,
+    requestBody: DeleteRequest
   ): CancelablePromise<BaseResponseBoolean> {
     return __request(OpenAPI, {
-      method: 'POST',
-      url: '/user/delete',
+      method: "POST",
+      url: "/user/delete",
       body: requestBody,
-      mediaType: 'application/json',
+      mediaType: "application/json",
     });
   }
+
   /**
    * @param requestBody
    * @returns BaseResponseLong OK
    * @throws ApiError
    */
   public static addUser(
-    requestBody: UserAddRequest,
+    requestBody: UserAddRequest
   ): CancelablePromise<BaseResponseLong> {
     return __request(OpenAPI, {
-      method: 'POST',
-      url: '/user/add',
+      method: "POST",
+      url: "/user/add",
       body: requestBody,
-      mediaType: 'application/json',
+      mediaType: "application/json",
     });
   }
+
   /**
    * @param id
    * @returns BaseResponseUser OK
    * @throws ApiError
    */
-  public static getUserById(
-    id: number,
-  ): CancelablePromise<BaseResponseUser> {
+  public static getUserById(id: number): CancelablePromise<BaseResponseUser> {
     return __request(OpenAPI, {
-      method: 'GET',
-      url: '/user/get',
+      method: "GET",
+      url: "/user/get",
       query: {
-        'id': id,
+        id: id,
       },
     });
   }
+
   /**
    * @param id
    * @returns BaseResponseUserVO OK
    * @throws ApiError
    */
   public static getUserVoById(
-    id: number,
+    id: number
   ): CancelablePromise<BaseResponseUserVO> {
     return __request(OpenAPI, {
-      method: 'GET',
-      url: '/user/get/vo',
+      method: "GET",
+      url: "/user/get/vo",
       query: {
-        'id': id,
+        id: id,
       },
     });
   }
+
   /**
    * @returns BaseResponseLoginUserVO OK
    * @throws ApiError
    */
   public static getLoginUser(): CancelablePromise<BaseResponseLoginUserVO> {
     return __request(OpenAPI, {
-      method: 'GET',
-      url: '/user/get/login',
+      method: "GET",
+      url: "/user/get/login",
     });
   }
 }

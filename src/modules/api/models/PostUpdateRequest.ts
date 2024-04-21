@@ -8,4 +8,3 @@ export type PostUpdateRequest = {
   content: string;
   tags: Array<string>;
 };
-

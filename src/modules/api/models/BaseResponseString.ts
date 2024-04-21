@@ -7,4 +7,3 @@ export type BaseResponseString = {
   data?: string;
   message?: string;
 };
-

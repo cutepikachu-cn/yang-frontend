@@ -18,43 +18,45 @@ export class PostFavourControllerService {
    * @throws ApiError
    */
   public static listSelfFavourPostByPage(
-    requestBody: PageRequest,
+    requestBody: PageRequest
   ): CancelablePromise<BaseResponsePagePostVO> {
     return __request(OpenAPI, {
-      method: 'POST',
-      url: '/post_favour/self/list/page',
+      method: "POST",
+      url: "/post_favour/self/list/page",
       body: requestBody,
-      mediaType: 'application/json',
+      mediaType: "application/json",
     });
   }
+
   /**
    * @param requestBody
    * @returns BaseResponsePagePostVO OK
    * @throws ApiError
    */
   public static listFavourPostByPage(
-    requestBody: PostFavourQueryRequest,
+    requestBody: PostFavourQueryRequest
   ): CancelablePromise<BaseResponsePagePostVO> {
     return __request(OpenAPI, {
-      method: 'POST',
-      url: '/post_favour/list/page',
+      method: "POST",
+      url: "/post_favour/list/page",
       body: requestBody,
-      mediaType: 'application/json',
+      mediaType: "application/json",
     });
   }
+
   /**
    * @param requestBody
    * @returns BaseResponseInteger OK
    * @throws ApiError
    */
   public static doPostFavour(
-    requestBody: PostFavourAddRequest,
+    requestBody: PostFavourAddRequest
   ): CancelablePromise<BaseResponseInteger> {
     return __request(OpenAPI, {
-      method: 'POST',
-      url: '/post_favour/',
+      method: "POST",
+      url: "/post_favour/",
       body: requestBody,
-      mediaType: 'application/json',
+      mediaType: "application/json",
     });
   }
 }

@@ -18,4 +18,3 @@ export type PostVO = {
   hasThumb?: boolean;
   hasFavour?: boolean;
 };
-

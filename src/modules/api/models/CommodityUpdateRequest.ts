@@ -10,4 +10,3 @@ export type CommodityUpdateRequest = {
   detail?: string;
   price?: number;
 };
-

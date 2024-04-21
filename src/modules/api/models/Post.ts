@@ -14,4 +14,3 @@ export type Post = {
   updateTime?: string;
   isDelete?: number;
 };
-

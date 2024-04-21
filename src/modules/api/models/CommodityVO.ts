@@ -19,4 +19,3 @@ export type CommodityVO = {
   shop?: UserVO;
   createTime?: string;
 };
-

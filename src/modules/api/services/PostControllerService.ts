@@ -23,118 +23,125 @@ export class PostControllerService {
    * @throws ApiError
    */
   public static updatePost(
-    requestBody: PostUpdateRequest,
+    requestBody: PostUpdateRequest
   ): CancelablePromise<BaseResponseBoolean> {
     return __request(OpenAPI, {
-      method: 'POST',
-      url: '/post/update',
+      method: "POST",
+      url: "/post/update",
       body: requestBody,
-      mediaType: 'application/json',
+      mediaType: "application/json",
     });
   }
+
   /**
    * @param requestBody
    * @returns BaseResponsePagePostVO OK
    * @throws ApiError
    */
   public static listSelfPostVoByPage(
-    requestBody: PostQueryRequest,
+    requestBody: PostQueryRequest
   ): CancelablePromise<BaseResponsePagePostVO> {
     return __request(OpenAPI, {
-      method: 'POST',
-      url: '/post/self/list/page/vo',
+      method: "POST",
+      url: "/post/self/list/page/vo",
       body: requestBody,
-      mediaType: 'application/json',
+      mediaType: "application/json",
     });
   }
+
   /**
    * @param requestBody
    * @returns BaseResponsePagePost OK
    * @throws ApiError
    */
   public static listPostByPage(
-    requestBody: PostQueryRequest,
+    requestBody: PostQueryRequest
   ): CancelablePromise<BaseResponsePagePost> {
     return __request(OpenAPI, {
-      method: 'POST',
-      url: '/post/list/page',
+      method: "POST",
+      url: "/post/list/page",
       body: requestBody,
-      mediaType: 'application/json',
+      mediaType: "application/json",
     });
   }
+
   /**
    * @param requestBody
    * @returns BaseResponsePagePostVO OK
    * @throws ApiError
    */
   public static listPostVoByPage(
-    requestBody: PostQueryRequest,
+    requestBody: PostQueryRequest
   ): CancelablePromise<BaseResponsePagePostVO> {
     return __request(OpenAPI, {
-      method: 'POST',
-      url: '/post/list/page/vo',
+      method: "POST",
+      url: "/post/list/page/vo",
       body: requestBody,
-      mediaType: 'application/json',
+      mediaType: "application/json",
     });
   }
+
   /**
    * @param requestBody
    * @returns BaseResponseBoolean OK
    * @throws ApiError
    */
   public static editPost(
-    requestBody: PostEditRequest,
+    requestBody: PostEditRequest
   ): CancelablePromise<BaseResponseBoolean> {
     return __request(OpenAPI, {
-      method: 'POST',
-      url: '/post/edit',
+      method: "POST",
+      url: "/post/edit",
       body: requestBody,
-      mediaType: 'application/json',
+      mediaType: "application/json",
     });
   }
+
   /**
    * @param requestBody
    * @returns BaseResponseBoolean OK
    * @throws ApiError
    */
   public static deletePost(
-    requestBody: DeleteRequest,
+    requestBody: DeleteRequest
   ): CancelablePromise<BaseResponseBoolean> {
     return __request(OpenAPI, {
-      method: 'POST',
-      url: '/post/delete',
+      method: "POST",
+      url: "/post/delete",
       body: requestBody,
-      mediaType: 'application/json',
+      mediaType: "application/json",
     });
   }
+
   /**
    * @param requestBody
    * @returns BaseResponseLong OK
    * @throws ApiError
    */
   public static addPost(
-    requestBody: PostAddRequest,
+    requestBody: PostAddRequest
   ): CancelablePromise<BaseResponseLong> {
     return __request(OpenAPI, {
-      method: 'POST',
-      url: '/post/add',
+      method: "POST",
+      url: "/post/add",
       body: requestBody,
-      mediaType: 'application/json',
+      mediaType: "application/json",
     });
   }
+
   /**
    * @param id
    * @returns BaseResponsePostVO OK
    * @throws ApiError
    */
   public static getPostVoById(
-    id: number,
+    id: number
   ): CancelablePromise<BaseResponsePostVO> {
     return __request(OpenAPI, {
-      method: 'GET',
-      url: '/post/get/vo',
+      method: "GET",
+      url: "/post/get/vo",
       query: {
-        'id': id,
+        id: id,
       },
     });
   }

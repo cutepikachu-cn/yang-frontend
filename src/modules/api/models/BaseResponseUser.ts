@@ -9,4 +9,3 @@ export type BaseResponseUser = {
   data?: User;
   message?: string;
 };
-

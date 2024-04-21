@@ -18,16 +18,16 @@ export class FileControllerService {
     fileBiz: string,
     requestBody?: {
       file: Blob;
-    },
+    }
   ): CancelablePromise<BaseResponseString> {
     return __request(OpenAPI, {
-      method: 'POST',
-      url: '/file/upload',
+      method: "POST",
+      url: "/file/upload",
       query: {
-        'fileBiz': fileBiz,
+        fileBiz: fileBiz,
       },
       formData: requestBody,
-      mediaType: 'application/json',
+      mediaType: "application/json",
     });
   }
 }

@@ -18,4 +18,3 @@ export type PageCommodity = {
   countId?: string;
   pages?: number;
 };
-

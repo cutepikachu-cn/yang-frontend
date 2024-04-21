@@ -22,103 +22,109 @@ export class CommodityControllerService {
    * @throws ApiError
    */
   public static updateCommodity(
-    requestBody: CommodityUpdateRequest,
+    requestBody: CommodityUpdateRequest
   ): CancelablePromise<BaseResponseBoolean> {
     return __request(OpenAPI, {
-      method: 'POST',
-      url: '/commodity/update',
+      method: "POST",
+      url: "/commodity/update",
       body: requestBody,
-      mediaType: 'application/json',
+      mediaType: "application/json",
     });
   }
+
   /**
    * @param requestBody
    * @returns BaseResponsePageCommodityVO OK
    * @throws ApiError
    */
   public static listSelfCommodityVoByPage(
-    requestBody: CommodityQueryRequest,
+    requestBody: CommodityQueryRequest
   ): CancelablePromise<BaseResponsePageCommodityVO> {
     return __request(OpenAPI, {
-      method: 'POST',
-      url: '/commodity/self/list/page/vo',
+      method: "POST",
+      url: "/commodity/self/list/page/vo",
       body: requestBody,
-      mediaType: 'application/json',
+      mediaType: "application/json",
     });
   }
+
   /**
    * @param requestBody
    * @returns BaseResponsePageCommodity OK
    * @throws ApiError
    */
   public static listCommodityByPage(
-    requestBody: CommodityQueryRequest,
+    requestBody: CommodityQueryRequest
   ): CancelablePromise<BaseResponsePageCommodity> {
     return __request(OpenAPI, {
-      method: 'POST',
-      url: '/commodity/list/page',
+      method: "POST",
+      url: "/commodity/list/page",
       body: requestBody,
-      mediaType: 'application/json',
+      mediaType: "application/json",
     });
   }
+
   /**
    * @param requestBody
    * @returns BaseResponsePageCommodityVO OK
    * @throws ApiError
    */
   public static listCommodityVoByPage(
-    requestBody: CommodityQueryRequest,
+    requestBody: CommodityQueryRequest
   ): CancelablePromise<BaseResponsePageCommodityVO> {
     return __request(OpenAPI, {
-      method: 'POST',
-      url: '/commodity/list/page/vo',
+      method: "POST",
+      url: "/commodity/list/page/vo",
       body: requestBody,
-      mediaType: 'application/json',
+      mediaType: "application/json",
     });
   }
+
   /**
    * @param requestBody
    * @returns BaseResponseBoolean OK
    * @throws ApiError
    */
   public static deleteCommodity(
-    requestBody: DeleteRequest,
+    requestBody: DeleteRequest
   ): CancelablePromise<BaseResponseBoolean> {
     return __request(OpenAPI, {
-      method: 'POST',
-      url: '/commodity/delete',
+      method: "POST",
+      url: "/commodity/delete",
       body: requestBody,
-      mediaType: 'application/json',
+      mediaType: "application/json",
     });
   }
+
   /**
    * @param requestBody
    * @returns BaseResponseLong OK
    * @throws ApiError
    */
   public static addCommodity(
-    requestBody: CommodityAddRequest,
+    requestBody: CommodityAddRequest
   ): CancelablePromise<BaseResponseLong> {
     return __request(OpenAPI, {
-      method: 'POST',
-      url: '/commodity/add',
+      method: "POST",
+      url: "/commodity/add",
       body: requestBody,
-      mediaType: 'application/json',
+      mediaType: "application/json",
     });
   }
+
   /**
    * @param id
    * @returns BaseResponseCommodityVO OK
    * @throws ApiError
    */
   public static getCommodityVoById(
-    id: number,
+    id: number
   ): CancelablePromise<BaseResponseCommodityVO> {
     return __request(OpenAPI, {
-      method: 'GET',
-      url: '/commodity/get/vo',
+      method: "GET",
+      url: "/commodity/get/vo",
       query: {
-        'id': id,
+        id: id,
       },
     });
   }

@@ -9,4 +9,3 @@ export type UserAddRequest = {
   userProfile?: string;
   userRole?: string;
 };
-

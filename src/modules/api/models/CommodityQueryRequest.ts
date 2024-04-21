@@ -11,4 +11,3 @@ export type CommodityQueryRequest = {
   minPrice?: number;
   maxPrice?: number;
 };
-

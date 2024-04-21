@@ -8,4 +8,3 @@ export type UserUpdateSelfRequest = {
   userAvatar?: string;
   userProfile?: string;
 };
-

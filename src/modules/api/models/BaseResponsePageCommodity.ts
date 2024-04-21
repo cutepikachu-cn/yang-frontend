@@ -9,4 +9,3 @@ export type BaseResponsePageCommodity = {
   data?: PageCommodity;
   message?: string;
 };
-

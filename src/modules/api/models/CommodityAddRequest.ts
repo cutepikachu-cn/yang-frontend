@@ -10,4 +10,3 @@ export type CommodityAddRequest = {
   stock: number;
   price: number;
 };
-

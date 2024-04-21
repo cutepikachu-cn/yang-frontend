@@ -15,13 +15,13 @@ export class PostThumbControllerService {
    * @throws ApiError
    */
   public static doThumb(
-    requestBody: PostThumbAddRequest,
+    requestBody: PostThumbAddRequest
   ): CancelablePromise<BaseResponseInteger> {
     return __request(OpenAPI, {
-      method: 'POST',
-      url: '/post_thumb/',
+      method: "POST",
+      url: "/post_thumb/",
       body: requestBody,
-      mediaType: 'application/json',
+      mediaType: "application/json",
     });
   }
 }
