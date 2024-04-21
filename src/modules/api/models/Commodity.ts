@@ -2,14 +2,17 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type User = {
+export type Commodity = {
   id?: number;
-  userAccount?: string;
-  userPassword?: string;
-  userNickname?: string;
-  userAvatar?: string;
-  userProfile?: string;
-  userRole?: string;
+  userId?: number;
+  name?: string;
+  isSale?: number;
+  imgUrl?: string;
+  detail?: string;
+  price?: number;
+  visitNum?: number;
+  shareNum?: number;
+  hot?: number;
   createTime?: string;
   updateTime?: string;
   isDelete?: number;

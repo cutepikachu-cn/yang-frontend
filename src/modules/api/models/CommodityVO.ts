@@ -4,18 +4,18 @@
 /* eslint-disable */
 import type { UserVO } from "./UserVO";
 
-export type PostVO = {
+export type CommodityVO = {
   id?: number;
-  title?: string;
-  content?: string;
-  thumbNum?: number;
-  favourNum?: number;
   userId?: number;
+  name?: string;
+  isSale?: number;
+  imgUrl?: string;
+  detail?: string;
+  price?: number;
+  visitNum?: number;
+  shareNum?: number;
+  hot?: number;
+  shop?: UserVO;
   createTime?: string;
-  updateTime?: string;
-  tagList?: Array<string>;
-  user?: UserVO;
-  hasThumb?: boolean;
-  hasFavour?: boolean;
 };
 

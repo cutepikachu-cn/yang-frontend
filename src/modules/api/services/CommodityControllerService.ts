@@ -3,76 +3,75 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { BaseResponseBoolean } from "../models/BaseResponseBoolean";
+import type { BaseResponseCommodityVO } from "../models/BaseResponseCommodityVO";
 import type { BaseResponseLong } from "../models/BaseResponseLong";
-import type { BaseResponsePagePost } from "../models/BaseResponsePagePost";
-import type { BaseResponsePagePostVO } from "../models/BaseResponsePagePostVO";
-import type { BaseResponsePostVO } from "../models/BaseResponsePostVO";
+import type { BaseResponsePageCommodity } from "../models/BaseResponsePageCommodity";
+import type { BaseResponsePageCommodityVO } from "../models/BaseResponsePageCommodityVO";
+import type { CommodityAddRequest } from "../models/CommodityAddRequest";
+import type { CommodityQueryRequest } from "../models/CommodityQueryRequest";
+import type { CommodityUpdateRequest } from "../models/CommodityUpdateRequest";
 import type { DeleteRequest } from "../models/DeleteRequest";
-import type { PostAddRequest } from "../models/PostAddRequest";
-import type { PostEditRequest } from "../models/PostEditRequest";
-import type { PostQueryRequest } from "../models/PostQueryRequest";
-import type { PostUpdateRequest } from "../models/PostUpdateRequest";
 import type { CancelablePromise } from "../core/CancelablePromise";
 import { OpenAPI } from "../core/OpenAPI";
 import { request as __request } from "../core/request";
 
-export class PostControllerService {
+export class CommodityControllerService {
   /**
    * @param requestBody
    * @returns BaseResponseBoolean OK
    * @throws ApiError
    */
-  public static updatePost(
-    requestBody: PostUpdateRequest,
+  public static updateCommodity(
+    requestBody: CommodityUpdateRequest,
   ): CancelablePromise<BaseResponseBoolean> {
     return __request(OpenAPI, {
       method: 'POST',
-      url: '/post/update',
+      url: '/commodity/update',
       body: requestBody,
       mediaType: 'application/json',
     });
   }
   /**
    * @param requestBody
-   * @returns BaseResponsePagePostVO OK
+   * @returns BaseResponsePageCommodityVO OK
    * @throws ApiError
    */
-  public static listSelfPostVoByPage(
-    requestBody: PostQueryRequest,
-  ): CancelablePromise<BaseResponsePagePostVO> {
+  public static listSelfCommodityVoByPage(
+    requestBody: CommodityQueryRequest,
+  ): CancelablePromise<BaseResponsePageCommodityVO> {
     return __request(OpenAPI, {
       method: 'POST',
-      url: '/post/self/list/page/vo',
+      url: '/commodity/self/list/page/vo',
       body: requestBody,
       mediaType: 'application/json',
     });
   }
   /**
    * @param requestBody
-   * @returns BaseResponsePagePost OK
+   * @returns BaseResponsePageCommodity OK
    * @throws ApiError
    */
-  public static listPostByPage(
-    requestBody: PostQueryRequest,
-  ): CancelablePromise<BaseResponsePagePost> {
+  public static listCommodityByPage(
+    requestBody: CommodityQueryRequest,
+  ): CancelablePromise<BaseResponsePageCommodity> {
     return __request(OpenAPI, {
       method: 'POST',
-      url: '/post/list/page',
+      url: '/commodity/list/page',
       body: requestBody,
       mediaType: 'application/json',
     });
   }
   /**
    * @param requestBody
-   * @returns BaseResponsePagePostVO OK
+   * @returns BaseResponsePageCommodityVO OK
    * @throws ApiError
    */
-  public static listPostVoByPage(
-    requestBody: PostQueryRequest,
-  ): CancelablePromise<BaseResponsePagePostVO> {
+  public static listCommodityVoByPage(
+    requestBody: CommodityQueryRequest,
+  ): CancelablePromise<BaseResponsePageCommodityVO> {
     return __request(OpenAPI, {
       method: 'POST',
-      url: '/post/list/page/vo',
+      url: '/commodity/list/page/vo',
       body: requestBody,
       mediaType: 'application/json',
     });
@@ -82,27 +81,12 @@ export class PostControllerService {
    * @returns BaseResponseBoolean OK
    * @throws ApiError
    */
-  public static editPost(
-    requestBody: PostEditRequest,
-  ): CancelablePromise<BaseResponseBoolean> {
-    return __request(OpenAPI, {
-      method: 'POST',
-      url: '/post/edit',
-      body: requestBody,
-      mediaType: 'application/json',
-    });
-  }
-  /**
-   * @param requestBody
-   * @returns BaseResponseBoolean OK
-   * @throws ApiError
-   */
-  public static deletePost(
+  public static deleteCommodity(
     requestBody: DeleteRequest,
   ): CancelablePromise<BaseResponseBoolean> {
     return __request(OpenAPI, {
       method: 'POST',
-      url: '/post/delete',
+      url: '/commodity/delete',
       body: requestBody,
       mediaType: 'application/json',
     });
@@ -112,27 +96,27 @@ export class PostControllerService {
    * @returns BaseResponseLong OK
    * @throws ApiError
    */
-  public static addPost(
-    requestBody: PostAddRequest,
+  public static addCommodity(
+    requestBody: CommodityAddRequest,
   ): CancelablePromise<BaseResponseLong> {
     return __request(OpenAPI, {
       method: 'POST',
-      url: '/post/add',
+      url: '/commodity/add',
       body: requestBody,
       mediaType: 'application/json',
     });
   }
   /**
    * @param id
-   * @returns BaseResponsePostVO OK
+   * @returns BaseResponseCommodityVO OK
    * @throws ApiError
    */
-  public static getPostVoById(
+  public static getCommodityVoById(
     id: number,
-  ): CancelablePromise<BaseResponsePostVO> {
+  ): CancelablePromise<BaseResponseCommodityVO> {
     return __request(OpenAPI, {
       method: 'GET',
-      url: '/post/get/vo',
+      url: '/commodity/get/vo',
       query: {
         'id': id,
       },

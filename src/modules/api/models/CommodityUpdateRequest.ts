@@ -2,11 +2,12 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type UserUpdateRequest = {
+export type CommodityUpdateRequest = {
   id: number;
-  userNickname?: string;
-  userAvatar?: string;
-  userProfile?: string;
-  userRole?: string;
+  name?: string;
+  isSale?: number;
+  imgUrl?: string;
+  detail?: string;
+  price?: number;
 };
 

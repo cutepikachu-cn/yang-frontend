@@ -7,3 +7,4 @@ export type PostAddRequest = {
   content: string;
   tags: Array<string>;
 };
+

@@ -18,3 +18,4 @@ export type PagePostVO = {
   countId?: string;
   pages?: number;
 };
+

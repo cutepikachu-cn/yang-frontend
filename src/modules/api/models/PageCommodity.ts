@@ -2,17 +2,17 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { Commodity } from "./Commodity";
 import type { OrderItem } from "./OrderItem";
-import type { Post } from "./Post";
 
-export type PagePost = {
-  records?: Array<Post>;
+export type PageCommodity = {
+  records?: Array<Commodity>;
   total?: number;
   size?: number;
   current?: number;
   orders?: Array<OrderItem>;
-  optimizeCountSql?: PagePost;
-  searchCount?: PagePost;
+  optimizeCountSql?: PageCommodity;
+  searchCount?: PageCommodity;
   optimizeJoinOfCountSql?: boolean;
   maxLimit?: number;
   countId?: string;

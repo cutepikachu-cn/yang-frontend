@@ -9,3 +9,4 @@ export type BaseResponseUserVO = {
   data?: UserVO;
   message?: string;
 };
+

@@ -8,3 +8,4 @@ export type UserRegisterRequest = {
   checkPassword: string;
   passwordMatch?: boolean;
 };
+

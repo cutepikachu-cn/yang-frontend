@@ -2,17 +2,17 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { CommodityVO } from "./CommodityVO";
 import type { OrderItem } from "./OrderItem";
-import type { Post } from "./Post";
 
-export type PagePost = {
-  records?: Array<Post>;
+export type PageCommodityVO = {
+  records?: Array<CommodityVO>;
   total?: number;
   size?: number;
   current?: number;
   orders?: Array<OrderItem>;
-  optimizeCountSql?: PagePost;
-  searchCount?: PagePost;
+  optimizeCountSql?: PageCommodityVO;
+  searchCount?: PageCommodityVO;
   optimizeJoinOfCountSql?: boolean;
   maxLimit?: number;
   countId?: string;

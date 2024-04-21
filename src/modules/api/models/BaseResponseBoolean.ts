@@ -7,3 +7,4 @@ export type BaseResponseBoolean = {
   data?: boolean;
   message?: string;
 };
+

@@ -9,3 +9,4 @@ export type BaseResponsePagePost = {
   data?: PagePost;
   message?: string;
 };
+

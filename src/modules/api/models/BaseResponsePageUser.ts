@@ -9,3 +9,4 @@ export type BaseResponsePageUser = {
   data?: PageUser;
   message?: string;
 };
+

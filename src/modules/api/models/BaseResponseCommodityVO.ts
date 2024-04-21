@@ -2,11 +2,11 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { User } from "./User";
+import type { CommodityVO } from "./CommodityVO";
 
-export type BaseResponseUser = {
+export type BaseResponseCommodityVO = {
   code?: number;
-  data?: User;
+  data?: CommodityVO;
   message?: string;
 };
 

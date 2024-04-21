@@ -2,11 +2,11 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { User } from "./User";
+import type { PageCommodity } from "./PageCommodity";
 
-export type BaseResponseUser = {
+export type BaseResponsePageCommodity = {
   code?: number;
-  data?: User;
+  data?: PageCommodity;
   message?: string;
 };
 

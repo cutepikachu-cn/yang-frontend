@@ -8,3 +8,4 @@ export type PostEditRequest = {
   content: string;
   tags: Array<string>;
 };
+

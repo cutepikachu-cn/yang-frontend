@@ -11,7 +11,7 @@ export type OpenAPIConfig = {
   BASE: string;
   VERSION: string;
   WITH_CREDENTIALS: boolean;
-  CREDENTIALS: "include" | "omit" | "same-origin";
+  CREDENTIALS: 'include' | 'omit' | 'same-origin';
   TOKEN?: string | Resolver<string> | undefined;
   USERNAME?: string | Resolver<string> | undefined;
   PASSWORD?: string | Resolver<string> | undefined;
@@ -20,10 +20,10 @@ export type OpenAPIConfig = {
 };
 
 export const OpenAPI: OpenAPIConfig = {
-  BASE: "http://localhost:8081/api",
-  VERSION: "0",
+  BASE: 'http://localhost:8081/api',
+  VERSION: '0',
   WITH_CREDENTIALS: true,
-  CREDENTIALS: "include",
+  CREDENTIALS: 'include',
   TOKEN: undefined,
   USERNAME: undefined,
   PASSWORD: undefined,

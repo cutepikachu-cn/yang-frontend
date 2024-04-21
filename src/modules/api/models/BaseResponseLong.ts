@@ -7,3 +7,4 @@ export type BaseResponseLong = {
   data?: number;
   message?: string;
 };
+

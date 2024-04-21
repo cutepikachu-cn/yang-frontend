@@ -7,3 +7,4 @@ export type BaseResponseInteger = {
   data?: number;
   message?: string;
 };
+
