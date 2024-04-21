@@ -13,6 +13,7 @@
     "@antv/f2": "^5.4.5",
     "axios": "^1.6.8",
     "core-js": "^3.8.3",
+    "lodash": "^4.17.21",
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.1",
     "vant": "^4.8.11",
