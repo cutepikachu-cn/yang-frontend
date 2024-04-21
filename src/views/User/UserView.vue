@@ -105,6 +105,7 @@ const onSelect = (
             size="large"
             text="商品管理"
             class="w-full shadow-md shadow-primary/20"
+            to="/commodity/list"
             v-if="userInfo?.userRole === 'farm'"
           />
         </van-col>

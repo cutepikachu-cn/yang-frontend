@@ -12,6 +12,8 @@ import MonitorView from "@/views/Monitor/MonitorView.vue";
 import AssistantView from "@/views/Assistant/AssistantView.vue";
 import CourseView from "@/views/Course/CourseView.vue";
 import LoginView from "@/views/Login/LoginView.vue";
+import CommodityView from "@/views/Commodity/CommodityView.vue";
+import CommodityManageView from "@/views/Commodity/CommodityListView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   { path: "", redirect: "/home" },
@@ -35,14 +37,25 @@ const routes: Array<RouteRecordRaw> = [
     path: "/",
     component: PageLayout,
     children: [
-      { path: "/about", component: AboutView, meta: { title: "关于" } },
-      { path: "/monitor", component: MonitorView, meta: { title: "数据监控" } },
+      { path: "about", component: AboutView, meta: { title: "关于" } },
+      { path: "monitor", component: MonitorView, meta: { title: "数据监控" } },
       {
-        path: "/assistant",
+        path: "assistant",
         component: AssistantView,
         meta: { title: "智能问答" },
       },
-      { path: "/course", component: CourseView, meta: { title: "课程" } },
+      { path: "course", component: CourseView, meta: { title: "课程" } },
+      {
+        path: "commodity",
+        component: CommodityView,
+        children: [
+          {
+            path: "list",
+            component: CommodityManageView,
+            meta: { title: "商品管理" },
+          },
+        ],
+      },
       { path: "", redirect: "/" },
     ],
   },
