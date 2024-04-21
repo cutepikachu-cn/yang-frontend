@@ -6,5 +6,7 @@ export type UserRegisterRequest = {
   userAccount: string;
   userPassword: string;
   checkPassword: string;
+  userNickname: string;
+  userRole?: string;
   passwordMatch?: boolean;
 };
