@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { ref } from "vue";
 import { UserLoginRequest } from "@/modules/api";
 import { useUserStore } from "@/store/user";
 import { useRoute, useRouter } from "vue-router";
@@ -11,13 +11,6 @@ const router = useRouter();
 const redirectUrl = route.query.redirectURL as string;
 
 const active = ref(0);
-
-onMounted(async () => {
-  const loginUser = await getLoginUser();
-  if (loginUser) {
-    router.replace("/");
-  }
-});
 
 const userAccount = ref("cutepikachu");
 const userPassword = ref("cutepikachu");
@@ -148,6 +141,9 @@ const onSubmit = lodash.throttle(
         </van-form>
       </van-tab>
     </van-tabs>
+    <router-link class="text-primary text-sm self-end px-4" to="/register"
+      >去注册</router-link
+    >
   </div>
 </template>
 
