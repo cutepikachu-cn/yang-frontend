@@ -15,6 +15,7 @@ import LoginView from "@/views/Login/LoginView.vue";
 import CommodityView from "@/views/Commodity/CommodityView.vue";
 import CommodityManageView from "@/views/Commodity/CommodityListView.vue";
 import CommodityAddView from "@/views/Commodity/CommodityAddView.vue";
+import UserInfoView from "@/views/User/UserInfoView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   { path: "", redirect: "/home" },
@@ -61,6 +62,11 @@ const routes: Array<RouteRecordRaw> = [
             meta: { title: "添加商品" },
           },
         ],
+      },
+      {
+        path: "self",
+        component: UserInfoView,
+        meta: { title: "用户信息" },
       },
       { path: "", redirect: "/" },
     ],

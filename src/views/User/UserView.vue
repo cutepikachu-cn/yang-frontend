@@ -11,12 +11,7 @@ const router = useRouter();
 const userInfo = ref<LoginUserVO>({});
 
 onMounted(async () => {
-  userInfo.value = (await getLoginUser()) || {
-    id: 0,
-    userNickname: "笨蛋皮卡丘",
-    userAvatar: "http://source.cute-pikachu.cn/img/avatar.webp",
-    userRole: "farm",
-  };
+  userInfo.value = (await getLoginUser()) || {};
 });
 
 const active = ref(0);
@@ -71,7 +66,9 @@ const onSelect = (
       :src="userInfo?.userAvatar"
     />
     <div class="mt-11 mb-1 text-xl text-black -top-10 flex items-center h-10">
-      <h2 class="mr-2">{{ userInfo?.userNickname }}</h2>
+      <h2 class="mr-2">
+        {{ userInfo?.userNickname || userInfo?.userAccount }}
+      </h2>
       <van-tag type="primary" class="px-3" size="large"> TAG</van-tag>
     </div>
 
@@ -85,6 +82,7 @@ const onSelect = (
             size="large"
             text="用户信息"
             class="w-full shadow-md shadow-primary/20"
+            to="/self"
           />
         </van-col>
         <van-col span="12">

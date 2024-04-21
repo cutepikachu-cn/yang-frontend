@@ -1,15 +1,23 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { UserLoginRequest } from "@/modules/api";
 import { useUserStore } from "@/store/user";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import lodash from "lodash";
 
-const { userLogin } = useUserStore();
+const { userLogin, getLoginUser } = useUserStore();
 const route = useRoute();
+const router = useRouter();
 const redirectUrl = route.query.redirectURL as string;
 
 const active = ref(0);
+
+onMounted(async () => {
+  const loginUser = await getLoginUser();
+  if (loginUser) {
+    router.replace("/");
+  }
+});
 
 const userAccount = ref("cutepikachu");
 const userPassword = ref("cutepikachu");
