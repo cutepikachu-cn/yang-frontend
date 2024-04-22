@@ -10,7 +10,8 @@ import PageLayout from "@/layouts/PageLayout.vue";
 import AboutView from "@/views/About/AboutView.vue";
 import MonitorView from "@/views/Monitor/MonitorView.vue";
 import AssistantView from "@/views/Assistant/AssistantView.vue";
-import CourseListView from "@/views/Course/CourseTypeListView.vue";
+import CourseTypeListView from "@/views/Course/CourseTypeListView.vue";
+import CourseListView from "@/views/Course/CourseListView.vue";
 import UserLoginView from "@/views/User/UserLoginView.vue";
 import CommodityView from "@/views/Commodity/CommodityView.vue";
 import CommodityManageView from "@/views/Commodity/CommodityListView.vue";
@@ -49,8 +50,13 @@ const routes: Array<RouteRecordRaw> = [
       },
       {
         path: "course",
-        component: CourseListView,
+        component: CourseTypeListView,
         meta: { title: "课程分类列表" },
+      },
+      {
+        path: "course/:courseTypeId",
+        component: CourseListView,
+        meta: { title: "课程列表" },
       },
       {
         path: "commodity",
