@@ -29,6 +29,12 @@ const onSubmit = lodash.throttle(
   <div
     class="login w-screen h-screen align-center flex flex-col justify-center"
   >
+    <div class="px-2">
+      <router-link to="/home" class="text-primary text-sm">
+        <van-icon class-prefix="fa-duotone fa-home" />
+        回到首页
+      </router-link>
+    </div>
     <van-tabs v-model:active="active" animated swipeable>
       <van-tab title="羊场主登录">
         <van-icon
@@ -142,8 +148,8 @@ const onSubmit = lodash.throttle(
       </van-tab>
     </van-tabs>
     <router-link class="text-primary text-sm self-end px-4" to="/register"
-      >去注册</router-link
-    >
+      >去注册
+    </router-link>
   </div>
 </template>
 
