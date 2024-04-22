@@ -5,7 +5,7 @@ import { useUserStore } from "@/store/user";
 import { useRoute, useRouter } from "vue-router";
 import lodash from "lodash";
 
-const { userLogin, getLoginUser } = useUserStore();
+const { userLogin } = useUserStore();
 const route = useRoute();
 const router = useRouter();
 const redirectUrl = route.query.redirectURL as string;

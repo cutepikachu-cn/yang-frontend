@@ -11,7 +11,7 @@ import AboutView from "@/views/About/AboutView.vue";
 import MonitorView from "@/views/Monitor/MonitorView.vue";
 import AssistantView from "@/views/Assistant/AssistantView.vue";
 import CourseView from "@/views/Course/CourseView.vue";
-import LoginView from "@/views/Login/LoginView.vue";
+import UserLoginView from "@/views/User/UserLoginView.vue";
 import CommodityView from "@/views/Commodity/CommodityView.vue";
 import CommodityManageView from "@/views/Commodity/CommodityListView.vue";
 import CommodityAddView from "@/views/Commodity/CommodityAddView.vue";
@@ -79,7 +79,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/login",
-    component: LoginView,
+    component: UserLoginView,
     meta: { title: "登录" },
   },
 ];
