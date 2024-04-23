@@ -47,6 +47,7 @@ const onLoad = async () => {
       v-for="course in courseTypeList"
       :key="course.id"
       :title="course.name"
+      :to="'/course/' + course.id"
     >
       <template #icon>
         <van-image
