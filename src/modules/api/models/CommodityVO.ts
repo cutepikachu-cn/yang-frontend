@@ -9,7 +9,7 @@ export type CommodityVO = {
   userId?: number;
   name?: string;
   isSale?: number;
-  imgUrl?: string;
+  imgUrl?: Array<string>;
   detail?: string;
   stock?: number;
   price?: number;

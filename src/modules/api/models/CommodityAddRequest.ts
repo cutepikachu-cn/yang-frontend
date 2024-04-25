@@ -5,7 +5,7 @@
 export type CommodityAddRequest = {
   name: string;
   isSale: number;
-  imgUrl: string;
+  imgUrl: Array<string>;
   detail: string;
   stock: number;
   price: number;

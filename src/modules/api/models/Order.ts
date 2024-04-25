@@ -2,18 +2,16 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type Commodity = {
+export type Order = {
   id?: number;
   userId?: number;
-  name?: string;
-  isSale?: number;
-  imgUrl?: Array<string>;
-  detail?: string;
-  stock?: number;
-  price?: number;
-  visitNum?: number;
-  shareNum?: number;
-  hot?: number;
+  shopId?: number;
+  commodityId?: number;
+  quantity?: number;
+  status?: string;
+  payTime?: string;
+  refundTime?: string;
+  paymentMethod?: string;
   createTime?: string;
   updateTime?: string;
   isDelete?: number;

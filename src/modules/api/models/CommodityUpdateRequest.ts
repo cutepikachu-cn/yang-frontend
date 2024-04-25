@@ -6,7 +6,7 @@ export type CommodityUpdateRequest = {
   id: number;
   name?: string;
   isSale?: number;
-  imgUrl?: string;
+  imgUrl?: Array<string>;
   detail?: string;
   price?: number;
 };
