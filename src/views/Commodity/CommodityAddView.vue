@@ -5,51 +5,53 @@ import {
   CommodityControllerService,
   FileControllerService,
 } from "@/modules/api";
-import { showFailToast, showSuccessToast } from "vant";
 import lodash from "lodash";
+import { showFailToast, showSuccessToast } from "vant";
 
 const fileValue = ref([]);
-const afterRead = (file: never) => {
-  console.log(file);
+const afterRead = (files: never) => {
+  console.log(files);
 };
-const form = ref<CommodityAddRequest>({
+
+const resetForm: CommodityAddRequest = {
   name: "",
   isSale: 0,
-  imgUrl: "",
+  imgUrl: [],
   detail: "",
   stock: 0,
   price: 0,
-});
+};
 
-const resetForm = () => {
-  form.value = {
-    name: "",
-    isSale: 0,
-    imgUrl: "",
-    detail: "",
-    stock: 0,
-    price: 0,
-  };
+const form = ref<CommodityAddRequest>(resetForm);
+
+const reset = () => {
+  form.value = resetForm;
   fileValue.value = [];
 };
 
 const onSubmit = lodash.throttle(
   async () => {
-    const file = fileValue.value[0]?.file;
-    const fileUpload = await FileControllerService.uploadFile("COMMODITY_IMG", {
-      file,
-    });
-    if (fileUpload.code !== 0) {
-      showFailToast("添加商品失败");
-      return;
+    for (let i = 0; i < fileValue.value.length; i++) {
+      const file = fileValue.value[i].file;
+      const fileUpload = await FileControllerService.uploadFile(
+        "COMMODITY_IMG",
+        {
+          file,
+        }
+      );
+      if (fileUpload.code !== 0) {
+        showFailToast("添加商品失败");
+        form.value.imgUrl = [];
+        return;
+      }
+      form.value.imgUrl.push(fileUpload.data as string);
     }
-    form.value.imgUrl = fileUpload.data as string;
     const res = await CommodityControllerService.addCommodity(form.value);
     if (res.code !== 0) {
       showFailToast("添加商品失败");
       return;
     }
-    resetForm();
+    reset();
     showSuccessToast("添加商品成功");
   },
   1000,
@@ -72,7 +74,8 @@ const onSubmit = lodash.throttle(
           <van-uploader
             reupload
             :max-size="1024 * 1024"
-            :max-count="1"
+            multiple
+            :max-count="10"
             v-model="fileValue"
             :after-read="afterRead"
           />
