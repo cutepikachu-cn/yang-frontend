@@ -49,7 +49,7 @@ const onLoad = () => {
       <van-cell title="课程" is-link center size="large" to="/course">
         <template #icon>
           <van-icon
-            class-prefix="fa-duotone fa-book fa-3x"
+            class-prefix="fa-regular fa-book fa-3x"
             class="mr-2 text-success"
           />
         </template>
@@ -57,7 +57,7 @@ const onLoad = () => {
       <van-cell title="发现" is-link center size="large">
         <template #icon>
           <van-icon
-            class-prefix="fa-duotone fa-file-magnifying-glass fa-3x"
+            class-prefix="fa-regular fa-file-magnifying-glass fa-3x"
             class="mr-2 text-success"
           />
         </template>
@@ -65,7 +65,7 @@ const onLoad = () => {
       <van-cell title="分析" is-link center size="large">
         <template #icon>
           <van-icon
-            class-prefix="fa-duotone fa-chart-mixed fa-3x"
+            class-prefix="fa-regular fa-chart-mixed fa-3x"
             class="mr-2 text-success"
           />
         </template>

@@ -71,7 +71,7 @@ const showDescription = ref(false);
         size="small"
         round
         icon="custom"
-        icon-prefix="fa-duotone fa-play"
+        icon-prefix="fa-regular fa-play"
         color="white"
         class="bg-transparent px-2"
       >
@@ -97,7 +97,7 @@ const showDescription = ref(false);
         >
           <template #right-icon>
             简介
-            <van-icon class-prefix="fa-duotone fa-chevron-right" class="ml-1" />
+            <van-icon class-prefix="fa-regular fa-chevron-right" class="ml-1" />
           </template>
         </van-cell>
         <van-popup
@@ -121,7 +121,7 @@ const showDescription = ref(false);
             :key="course.id"
             :title="course.name"
             icon="a"
-            icon-prefix="fa-duotone fa-circle-play"
+            icon-prefix="fa-regular fa-circle-play"
             center
           >
             <template #icon>
@@ -135,7 +135,7 @@ const showDescription = ref(false);
             </template>
             <template #right-icon>
               <van-icon
-                class-prefix="fa-duotone fa-circle-play"
+                class-prefix="fa-regular fa-circle-play"
                 class="text-primary text-xl ml-1"
               />
             </template>

@@ -41,7 +41,7 @@ const onLoad = async () => {
       size="large"
       block
       icon="custom"
-      icon-prefix="fa-duotone fa-circle-plus"
+      icon-prefix="fa-regular fa-circle-plus"
       to="/commodity/add"
     >
       添加商品

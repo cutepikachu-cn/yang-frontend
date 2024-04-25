@@ -21,11 +21,11 @@ const rate = ref<number>(props.hot);
       <h1 class="text-sm truncate">{{ title }}</h1>
       <div class="data flex flex-row h-4">
         <div class="view text-xs truncate w-1/2">
-          <van-icon class-prefix="fa-duotone fa-eye" />
+          <van-icon class-prefix="fa-regular fa-eye" />
           {{ viewNum }}
         </div>
         <div class="share text-xs truncate w-1/2">
-          <van-icon class-prefix="fa-duotone fa-share-from-square" />
+          <van-icon class-prefix="fa-regular fa-share-from-square" />
           {{ shareNum }}
         </div>
       </div>

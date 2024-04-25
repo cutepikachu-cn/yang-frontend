@@ -8,27 +8,27 @@ const tabItemList = [
   {
     title: "农场中心",
     to: "/farm",
-    iconClassPrefix: "fa-duotone fa-farm",
+    iconClassPrefix: "fa-regular fa-farm",
   },
   {
     title: "云闽商城",
     to: "/shop",
-    iconClassPrefix: "fa-duotone fa-shop",
+    iconClassPrefix: "fa-regular fa-shop",
   },
   {
     title: "首页",
     to: "/home",
-    iconClassPrefix: "fa-duotone fa-house",
+    iconClassPrefix: "fa-regular fa-house",
   },
   {
     title: "社区交流",
     to: "/community",
-    iconClassPrefix: "fa-duotone fa-messages",
+    iconClassPrefix: "fa-regular fa-messages",
   },
   {
     title: "个人中心",
     to: "/user",
-    iconClassPrefix: "fa-duotone fa-user",
+    iconClassPrefix: "fa-regular fa-user",
   },
 ];
 </script>
@@ -48,31 +48,31 @@ const tabItemList = [
     </van-tabbar-item>
     <!--<van-tabbar-item to="/farm">-->
     <!--  <template #icon>-->
-    <!--    <van-icon class-prefix="fa-duotone fa-farm"/>-->
+    <!--    <van-icon class-prefix="fa-regular fa-farm"/>-->
     <!--  </template>-->
     <!--  农场中心-->
     <!--</van-tabbar-item>-->
     <!--<van-tabbar-item to="/shop">-->
     <!--  <template #icon>-->
-    <!--    <van-icon class-prefix="fa-duotone fa-shop"/>-->
+    <!--    <van-icon class-prefix="fa-regular fa-shop"/>-->
     <!--  </template>-->
     <!--  云闽商城-->
     <!--</van-tabbar-item>-->
     <!--<van-tabbar-item to="/home">-->
     <!--  <template #icon>-->
-    <!--    <van-icon class-prefix="fa-duotone fa-house"/>-->
+    <!--    <van-icon class-prefix="fa-regular fa-house"/>-->
     <!--  </template>-->
     <!--  首页-->
     <!--</van-tabbar-item>-->
     <!--<van-tabbar-item to="/community">-->
     <!--  <template #icon>-->
-    <!--    <van-icon class-prefix="fa-duotone fa-messages"/>-->
+    <!--    <van-icon class-prefix="fa-regular fa-messages"/>-->
     <!--  </template>-->
     <!--  社区交流-->
     <!--</van-tabbar-item>-->
     <!--<van-tabbar-item to="/user">-->
     <!--  <template #icon>-->
-    <!--    <van-icon class-prefix="fa-duotone fa-user"/>-->
+    <!--    <van-icon class-prefix="fa-regular fa-user"/>-->
     <!--  </template>-->
     <!--  个人中心-->
     <!--</van-tabbar-item>-->

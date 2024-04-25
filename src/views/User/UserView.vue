@@ -43,7 +43,7 @@ const onSelect = (
     <div class="menu absolute text-2xl right-2">
       <van-popover :actions="actions" placement="bottom-end" @select="onSelect">
         <template #reference>
-          <van-icon class-prefix="fa-duotone fa-bars" color="white" />
+          <van-icon class-prefix="fa-regular fa-bars" color="white" />
         </template>
       </van-popover>
     </div>

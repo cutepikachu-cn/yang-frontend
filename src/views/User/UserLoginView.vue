@@ -2,12 +2,11 @@
 import { ref } from "vue";
 import { UserLoginRequest } from "@/modules/api";
 import { useUserStore } from "@/store/user";
-import { useRoute, useRouter } from "vue-router";
+import { useRoute } from "vue-router";
 import lodash from "lodash";
 
 const { userLogin } = useUserStore();
 const route = useRoute();
-const router = useRouter();
 const redirectUrl = route.query.redirectURL as string;
 
 const active = ref(0);
@@ -31,14 +30,14 @@ const onSubmit = lodash.throttle(
   >
     <div class="px-2">
       <router-link to="/home" class="text-primary text-sm">
-        <van-icon class-prefix="fa-duotone fa-home" />
+        <van-icon class-prefix="fa-regular fa-home" />
         回到首页
       </router-link>
     </div>
     <van-tabs v-model:active="active" animated swipeable>
       <van-tab title="羊场主登录">
         <van-icon
-          class-prefix="fa-duotone fa-farm fa-5x fa-flip"
+          class-prefix="fa-regular fa-farm fa-5x fa-flip"
           style="--fa-animation-duration: 3s"
           class="w-full text-center py-10 text-primary"
         />
@@ -93,7 +92,7 @@ const onSubmit = lodash.throttle(
       </van-tab>
       <van-tab title="小金主登录">
         <van-icon
-          class-prefix="fa-duotone fa-user fa-5x fa-flip"
+          class-prefix="fa-regular fa-user fa-5x fa-flip"
           style="--fa-animation-duration: 3s"
           class="w-full text-center py-10 text-primary"
         />

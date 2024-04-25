@@ -78,7 +78,7 @@ const afterRead = async (file: { file: File }) => {
       <template #preview-cover>
         <div class="w-full h-full flex justify-center items-center">
           <van-icon
-            class-prefix="fa-duotone fa-camera fa-3x"
+            class-prefix="fa-regular fa-camera fa-3x"
             style="--fa-primary-opacity: 0.5"
           />
         </div>

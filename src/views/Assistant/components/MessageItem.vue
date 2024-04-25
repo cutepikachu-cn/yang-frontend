@@ -14,7 +14,7 @@ withDefaults(
 <template>
   <div class="message-item flex flex-row" v-if="!self">
     <van-icon
-      class-prefix="fa-duotone fa-user-robot fa-2x"
+      class-prefix="fa-regular fa-user-robot fa-2x"
       class="rounded-xl mr-2 shrink-0 text-primary"
     />
     <div

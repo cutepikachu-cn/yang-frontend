@@ -16,6 +16,7 @@ import UserLoginView from "@/views/User/UserLoginView.vue";
 import CommodityView from "@/views/Commodity/CommodityView.vue";
 import CommodityManageView from "@/views/Commodity/CommodityListView.vue";
 import CommodityAddView from "@/views/Commodity/CommodityAddView.vue";
+import CommodityDetailView from "@/views/Commodity/CommodityDetailView.vue";
 import UserInfoView from "@/views/User/UserInfoView.vue";
 import UserRegisterView from "@/views/User/UserRegisterView.vue";
 
@@ -71,6 +72,11 @@ const routes: Array<RouteRecordRaw> = [
             path: "add",
             component: CommodityAddView,
             meta: { title: "添加商品" },
+          },
+          {
+            path: "detail/:commodityId",
+            component: CommodityDetailView,
+            meta: { title: "商品详情" },
           },
         ],
       },

@@ -21,10 +21,10 @@ const message = ref<string>("");
       placeholder="请输入问题"
     >
       <template #left-icon>
-        <van-icon class-prefix="fa-duotone fa-microphone fa-2x" class="mr-2" />
+        <van-icon class-prefix="fa-regular fa-microphone fa-2x" class="mr-2" />
       </template>
       <template #right-icon>
-        <van-icon class-prefix="fa-duotone fa-circle-plus fa-2x" />
+        <van-icon class-prefix="fa-regular fa-circle-plus fa-2x" />
       </template>
       <template #button>
         <van-button type="primary" class="rounded-lg">Send</van-button>

@@ -89,7 +89,7 @@ const sortOptions = [
   >
     <template #action>
       <van-icon
-        class-prefix="fa-duotone fa-filter-list"
+        class-prefix="fa-regular fa-filter-list"
         color="var(--van-primary-color)"
         class="text-2xl align-middle"
         @click="onClickFilter"
