@@ -19,6 +19,9 @@ import CommodityAddView from "@/views/Commodity/CommodityAddView.vue";
 import CommodityDetailView from "@/views/Commodity/CommodityDetailView.vue";
 import UserInfoView from "@/views/User/UserInfoView.vue";
 import UserRegisterView from "@/views/User/UserRegisterView.vue";
+import OrderView from "@/views/Order/OrderView.vue";
+import OrderFarmView from "@/views/Order/OrderFarmView.vue";
+import OrderUserView from "@/views/Order/OrderUserView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   { path: "", redirect: "/home" },
@@ -84,6 +87,22 @@ const routes: Array<RouteRecordRaw> = [
         path: "self",
         component: UserInfoView,
         meta: { title: "用户信息" },
+      },
+      {
+        path: "/order",
+        component: OrderView,
+        children: [
+          {
+            path: "user",
+            component: OrderUserView,
+            meta: { title: "我的订单" },
+          },
+          {
+            path: "farm",
+            component: OrderFarmView,
+            meta: { title: "我的订单" },
+          },
+        ],
       },
       {
         path: "register",

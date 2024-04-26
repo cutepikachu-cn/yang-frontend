@@ -52,28 +52,12 @@ export class OrderControllerService {
    * @returns BaseResponsePageOrderVO OK
    * @throws ApiError
    */
-  public static pageOrderVoUser(
-    requestBody: OrderQueryRequest
-  ): CancelablePromise<BaseResponsePageOrderVO> {
-    return __request(OpenAPI, {
-      method: "POST",
-      url: "/order/page/vo/user",
-      body: requestBody,
-      mediaType: "application/json",
-    });
-  }
-
-  /**
-   * @param requestBody
-   * @returns BaseResponsePageOrderVO OK
-   * @throws ApiError
-   */
   public static pageOrderVoFarm(
     requestBody: OrderQueryRequest
   ): CancelablePromise<BaseResponsePageOrderVO> {
     return __request(OpenAPI, {
       method: "POST",
-      url: "/order/page/vo/farm",
+      url: "/order/page/vo",
       body: requestBody,
       mediaType: "application/json",
     });
@@ -100,29 +84,12 @@ export class OrderControllerService {
    * @returns BaseResponseOrderVO OK
    * @throws ApiError
    */
-  public static getOrderVoByIdUser(
-    id: number
-  ): CancelablePromise<BaseResponseOrderVO> {
-    return __request(OpenAPI, {
-      method: "GET",
-      url: "/order/get/vo/user",
-      query: {
-        id: id,
-      },
-    });
-  }
-
-  /**
-   * @param id
-   * @returns BaseResponseOrderVO OK
-   * @throws ApiError
-   */
   public static getOrderVoByIdFarm(
     id: number
   ): CancelablePromise<BaseResponseOrderVO> {
     return __request(OpenAPI, {
       method: "GET",
-      url: "/order/get/vo/farm",
+      url: "/order/get/vo",
       query: {
         id: id,
       },
