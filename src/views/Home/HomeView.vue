@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import CardList from "@/components/CardList.vue";
+import {
+  CommodityControllerService,
+  type CommodityQueryRequest,
+  CommodityVO,
+} from "@/modules/api";
+import CardItem from "@/components/CardItem.vue";
 
 const searchValue = ref("");
 
@@ -8,76 +13,64 @@ const onClickFilter = () => {
   return;
 };
 
-const swipeItemList = ref<
-  {
-    id: number;
-    imgUrl: string;
-  }[]
->([]);
+const commodityList = ref<CommodityVO[]>([]);
 
-const list = ref<CardItemInfo[]>([]);
-
-interface CardItemInfo {
-  title: string;
-  imgUrl: string;
-  viewNum: number;
-  shareNum: number;
-  hot: number;
-}
-
-const swipeList = [
-  {
-    id: 1,
-    imgUrl: "http://source.cute-pikachu.cn/img/swipe_1.webp",
-  },
-  {
-    id: 2,
-    imgUrl: "http://source.cute-pikachu.cn/img/swipe_2.webp",
-  },
-];
-
-const homeList: CardItemInfo[] = [
-  {
-    title: "【内蒙古】乌珠穆山羊",
-    imgUrl: "http://source.cute-pikachu.cn/img/item_1.webp",
-    viewNum: 146,
-    shareNum: 100,
-    hot: 4.5,
-  },
-  {
-    title: "【新疆】柯尔克孜羊",
-    imgUrl: "http://source.cute-pikachu.cn/img/item_2.webp",
-    viewNum: 65,
-    shareNum: 3,
-    hot: 3,
-  },
-  {
-    title: "【甘肃】山丹马",
-    imgUrl: "http://source.cute-pikachu.cn/img/item_3.webp",
-    viewNum: 1464234423432,
-    shareNum: 100,
-    hot: 4.5,
-  },
-  {
-    title: "【福建】闽南黄牛",
-    imgUrl: "http://source.cute-pikachu.cn/img/item_4.webp",
-    viewNum: 65,
-    shareNum: 3,
-    hot: 3,
-  },
-];
-
-onMounted(async () => {
-  swipeItemList.value = swipeList;
-  list.value = homeList;
+const commodityQueryRequest = ref<CommodityQueryRequest>({
+  current: 1,
+  pageSize: 5,
+  sortField: "createTime",
+  sortOrder: "descend",
 });
 
-const sortValue = ref(0);
+const swipeList = ref<CommodityVO[]>([]);
+
+onMounted(async () => {
+  const res = await CommodityControllerService.pageCommodityVo({
+    current: 1,
+    pageSize: 5,
+    sortField: "hot",
+    sortOrder: "descend",
+  });
+  if (res.code !== 0) {
+    return;
+  }
+  swipeList.value = res.data?.records;
+});
+
+const sortValue = ref("createTime");
 const sortOptions = [
-  { text: "综合排序", value: 0 },
-  { text: "按人数", value: 1 },
-  { text: "按热度", value: 2 },
+  { text: "最新", value: "createTime" },
+  { text: "按查看人数", value: "visitNum" },
+  { text: "按热度", value: "hot" },
 ];
+const changeSort = (value) => {
+  commodityList.value = [];
+  commodityQueryRequest.value = {
+    current: 1,
+    pageSize: 5,
+    sortField: value,
+    sortOrder: "descend",
+  };
+  finished.value = false;
+  onLoad();
+};
+
+const loading = ref(false);
+const finished = ref(false);
+const onLoad = async () => {
+  const { data } = await CommodityControllerService.pageCommodityVo(
+    commodityQueryRequest.value
+  );
+  commodityList.value.push(...data?.records);
+  loading.value = false;
+  if (
+    data?.records?.length === 0 ||
+    commodityList.value.length >= Number(data?.total)
+  ) {
+    finished.value = true;
+  }
+  commodityQueryRequest.value.current += 1;
+};
 </script>
 
 <template>
@@ -100,11 +93,11 @@ const sortOptions = [
   <van-cell title="活动推荐" size="large" is-link />
   <van-swipe>
     <van-swipe-item
-      v-for="item in swipeItemList"
+      v-for="item in swipeList"
       :key="item.id"
       class="text-white text-center"
     >
-      <van-image :src="item.imgUrl" />
+      <van-image :src="item.imgUrl[0]" fit="cover" class="w-full h-48" />
     </van-swipe-item>
   </van-swipe>
 
@@ -132,12 +125,32 @@ const sortOptions = [
   <van-cell title="优质羊肉" center size="large">
     <template #value>
       <van-dropdown-menu>
-        <van-dropdown-item v-model="sortValue" :options="sortOptions" />
+        <van-dropdown-item
+          v-model="sortValue"
+          :options="sortOptions"
+          @change="changeSort"
+        />
       </van-dropdown-menu>
     </template>
   </van-cell>
-
-  <CardList :list="list" />
+  <van-list
+    v-model:loading="loading"
+    :finished="finished"
+    finished-text="没有更多了"
+    @load="onLoad"
+  >
+    <div class="card-list grid grid-cols-2 gap-2 mx-1 mb-4">
+      <CardItem
+        v-for="(item, index) in commodityList"
+        :key="index"
+        :img-url="item.imgUrl"
+        :name="item.name"
+        :visit-num="Number(item.visitNum)"
+        :share-num="Number(item.shareNum)"
+        :hot="item.hot"
+      />
+    </div>
+  </van-list>
 </template>
 
 <style scoped></style>
