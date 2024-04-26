@@ -1,17 +1,34 @@
 <script setup lang="ts">
 import { defineProps, ref } from "vue";
 import { CommodityVO } from "@/modules/api";
+import { useRouter } from "vue-router";
 
-const props = defineProps<CommodityVO>();
+const router = useRouter();
+
+const props = defineProps<
+  CommodityVO & {
+    id: string;
+    visitNum: string;
+    shareNum: string;
+  }
+>();
 
 const rate = ref<number>(props.hot ? props.hot : 2.5);
+
+const toDetail = () => {
+  router.push(`/commodity/detail/${props.id}`);
+};
 </script>
 
 <template>
-  <div class="rounded-2xl overflow-hidden shadow-primary/30 shadow-md">
+  <div
+    class="rounded-2xl overflow-hidden shadow-primary/30 shadow-md"
+    @click="toDetail"
+  >
     <van-image fit="cover" :src="imgUrl[0]" class="w-full h-48" />
     <div class="content px-1.5 pb-2">
       <h1 class="text-sm truncate">{{ name }}</h1>
+      <h1 class="text-sm truncate">{{ id }}</h1>
       <div class="data flex flex-row h-4">
         <div class="view text-xs truncate w-1/2">
           <van-icon class-prefix="fa-regular fa-eye" />

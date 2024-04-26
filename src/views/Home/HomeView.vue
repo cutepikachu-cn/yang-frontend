@@ -145,9 +145,10 @@ const onLoad = async () => {
         :key="index"
         :img-url="item.imgUrl"
         :name="item.name"
-        :visit-num="Number(item.visitNum)"
-        :share-num="Number(item.shareNum)"
+        :visit-num="item.visitNum"
+        :share-num="item.shareNum"
         :hot="item.hot"
+        :id="item.id"
       />
     </div>
   </van-list>

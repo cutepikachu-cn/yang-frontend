@@ -8,6 +8,7 @@ const router = useRouter();
 
 const commodityId = ref();
 const commodity = ref<CommodityVO>({});
+const showOverlay = ref(false);
 
 onMounted(async () => {
   commodityId.value = route.params.commodityId;
@@ -15,11 +16,12 @@ onMounted(async () => {
     commodityId.value
   );
   if (res.code !== 0) {
+    showOverlay.value = true;
     router.replace("/home");
     return;
   }
   commodity.value = res.data;
-  console.log(commodity.value);
+  showOverlay.value = false;
 });
 </script>
 
@@ -127,12 +129,7 @@ onMounted(async () => {
     </div>
   </div>
 
-  <van-overlay
-    :show="commodity.isSale !== 1"
-    :duration="0"
-    :z-index="1000"
-    class=""
-  >
+  <van-overlay :show="showOverlay" :duration="0" :z-index="1000" class="">
     <router-link
       to="/home"
       class="absolute left-2 top-2 van-haptics-feedback text-gray-300"
