@@ -19,7 +19,7 @@ const loading = ref(false);
 const finished = ref(false);
 
 const onLoad = async () => {
-  const { data } = await CommodityControllerService.listSelfCommodityVoByPage(
+  const { data } = await CommodityControllerService.pageSelfCommodityVo(
     commodityQueryRequest.value
   );
   commodityList.value.push(...data?.records);

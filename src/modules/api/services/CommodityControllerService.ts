@@ -34,31 +34,15 @@ export class CommodityControllerService {
 
   /**
    * @param requestBody
-   * @returns BaseResponsePageCommodityVO OK
-   * @throws ApiError
-   */
-  public static listSelfCommodityVoByPage(
-    requestBody: CommodityQueryRequest
-  ): CancelablePromise<BaseResponsePageCommodityVO> {
-    return __request(OpenAPI, {
-      method: "POST",
-      url: "/commodity/self/list/page/vo",
-      body: requestBody,
-      mediaType: "application/json",
-    });
-  }
-
-  /**
-   * @param requestBody
    * @returns BaseResponsePageCommodity OK
    * @throws ApiError
    */
-  public static listCommodityByPage(
+  public static pageCommodity(
     requestBody: CommodityQueryRequest
   ): CancelablePromise<BaseResponsePageCommodity> {
     return __request(OpenAPI, {
       method: "POST",
-      url: "/commodity/list/page",
+      url: "/commodity/page",
       body: requestBody,
       mediaType: "application/json",
     });
@@ -69,12 +53,28 @@ export class CommodityControllerService {
    * @returns BaseResponsePageCommodityVO OK
    * @throws ApiError
    */
-  public static listCommodityVoByPage(
+  public static pageCommodityVo(
     requestBody: CommodityQueryRequest
   ): CancelablePromise<BaseResponsePageCommodityVO> {
     return __request(OpenAPI, {
       method: "POST",
-      url: "/commodity/list/page/vo",
+      url: "/commodity/page/vo",
+      body: requestBody,
+      mediaType: "application/json",
+    });
+  }
+
+  /**
+   * @param requestBody
+   * @returns BaseResponsePageCommodityVO OK
+   * @throws ApiError
+   */
+  public static pageSelfCommodityVo(
+    requestBody: CommodityQueryRequest
+  ): CancelablePromise<BaseResponsePageCommodityVO> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/commodity/page/vo/self",
       body: requestBody,
       mediaType: "application/json",
     });
