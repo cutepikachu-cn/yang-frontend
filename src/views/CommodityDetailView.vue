@@ -17,7 +17,7 @@ onMounted(async () => {
   );
   if (res.code !== 0) {
     showOverlay.value = true;
-    router.replace("/home");
+    router.replace("/user");
     return;
   }
   commodity.value = res.data;
@@ -131,7 +131,7 @@ onMounted(async () => {
 
   <van-overlay :show="showOverlay" :duration="0" :z-index="1000" class="">
     <router-link
-      to="/home"
+      to="/user"
       class="absolute left-2 top-2 van-haptics-feedback text-gray-300"
     >
       <van-icon class-prefix="fa-regular fa-chevron-left" />

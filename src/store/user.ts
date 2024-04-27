@@ -24,11 +24,12 @@ export const useUserStore = defineStore("user", () => {
           showFailToast("登陆失败");
           return;
         }
+        currentUser.value = res.data;
         if (redirectUrl) {
           window.location.href = redirectUrl;
           return;
         }
-        router.replace("/");
+        router.replace(`/${currentUser.value?.userRole}/index/center`);
       })
       .catch(() => {
         showFailToast("登陆失败");

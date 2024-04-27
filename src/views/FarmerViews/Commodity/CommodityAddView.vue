@@ -1,12 +1,29 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import {
   CommodityAddRequest,
   CommodityControllerService,
   FileControllerService,
+  LoginUserVO,
 } from "@/modules/api";
 import lodash from "lodash";
 import { showFailToast, showSuccessToast } from "vant";
+
+import { useUserStore } from "@/store/user";
+import { useRouter } from "vue-router";
+
+const { getLoginUser } = useUserStore();
+
+const router = useRouter();
+
+const userInfo = ref<LoginUserVO>({});
+onMounted(async () => {
+  userInfo.value = (await getLoginUser()) || {};
+  if (userInfo.value.userRole !== "farm") {
+    showFailToast("不是羊场主！\n请前往\n登录或注册");
+    router.replace("/login?role=farm");
+  }
+});
 
 const fileValue = ref([]);
 const afterRead = (files: never) => {

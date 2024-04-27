@@ -9,7 +9,7 @@ const { userLogin } = useUserStore();
 const route = useRoute();
 const redirectUrl = route.query.redirectURL as string;
 
-const active = ref(0);
+const active = ref((route.query.role as string) === "farm" ? 1 : 0);
 
 const userAccount = ref("cutepikachu");
 const userPassword = ref("cutepikachu");
@@ -29,7 +29,7 @@ const onSubmit = lodash.throttle(
     class="login w-screen h-screen align-center flex flex-col justify-center"
   >
     <div class="px-2">
-      <router-link to="/home" class="text-primary text-sm">
+      <router-link to="/user" class="text-primary text-sm">
         <van-icon class-prefix="fa-regular fa-home" />
         回到首页
       </router-link>

@@ -3,6 +3,7 @@ import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useUserStore } from "@/store/user";
 import { LoginUserVO } from "@/modules/api";
+import { showFailToast } from "vant";
 
 const { getLoginUser, userLogout } = useUserStore();
 
@@ -12,9 +13,11 @@ const userInfo = ref<LoginUserVO>({});
 
 onMounted(async () => {
   userInfo.value = (await getLoginUser()) || {};
+  if (userInfo.value.userRole !== "farm") {
+    showFailToast("不是羊场主！\n请前往\n登录或注册");
+    router.replace("/login?role=farm");
+  }
 });
-
-const active = ref(0);
 
 const actions = [{ text: "关于" }, { text: "退出登录" }];
 
@@ -47,13 +50,7 @@ const onSelect = (
         </template>
       </van-popover>
     </div>
-    <h1
-      class="text-2xl text-center text-white"
-      v-if="userInfo?.userRole === 'farm'"
-    >
-      羊场主中心
-    </h1>
-    <h1 class="text-2xl text-center text-white" v-else>小金主个人中心</h1>
+    <h1 class="text-2xl text-center text-white">羊场主中心</h1>
   </div>
 
   <div
@@ -74,15 +71,15 @@ const onSelect = (
 
     <div class="func w-full">
       <van-row align="center" justify="space-around" :gutter="[10, 10]" wrap>
+        <!--todo 羊场主信息跳转-->
         <van-col span="12">
           <van-button
             type="primary"
             round
             plain
             size="large"
-            text="用户信息"
+            text="羊场主信息"
             class="w-full shadow-md shadow-primary/20"
-            to="/self"
           />
         </van-col>
         <van-col span="12">
@@ -103,8 +100,7 @@ const onSelect = (
             size="large"
             text="商品管理"
             class="w-full shadow-md shadow-primary/20"
-            to="/commodity/list"
-            v-if="userInfo?.userRole === 'farm'"
+            to="/farm/commodity/manage"
           />
         </van-col>
         <van-col span="12">
@@ -115,34 +111,10 @@ const onSelect = (
             size="large"
             text="推广管理"
             class="w-full shadow-md shadow-primary/20"
-            v-if="userInfo?.userRole === 'farm'"
           />
         </van-col>
       </van-row>
     </div>
-  </div>
-
-  <div class="more my-4">
-    <van-tabs v-model:active="active" swipeable>
-      <van-tab title-class="text-lg">
-        <template #title>
-          <van-badge dot color="#facc15"> 待参加</van-badge>
-        </template>
-        待参加
-      </van-tab>
-      <van-tab title-class="text-lg">
-        <template #title>
-          <van-badge dot color="#facc15"> 待签收</van-badge>
-        </template>
-        待签收
-      </van-tab>
-      <van-tab title-class="text-lg">
-        <template #title>
-          <van-badge dot color="#facc15"> 售后</van-badge>
-        </template>
-        售后
-      </van-tab>
-    </van-tabs>
   </div>
 </template>
 

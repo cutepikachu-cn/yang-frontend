@@ -1,50 +1,118 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
-import BasicLayout from "@/layouts/BasicLayout.vue";
-import HomeView from "@/views/Home/HomeView.vue";
-import FarmView from "@/views/Farm/FarmView.vue";
-import ShopView from "@/views/Shop/ShopView.vue";
-import CommunityView from "@/views/Community/CommunityView.vue";
-import UserView from "@/views/User/UserView.vue";
-import PageLayout from "@/layouts/PageLayout.vue";
-import AboutView from "@/views/About/AboutView.vue";
-import MonitorView from "@/views/Monitor/MonitorView.vue";
-import AssistantView from "@/views/Assistant/AssistantView.vue";
-import CourseTypeListView from "@/views/Course/CourseTypeListView.vue";
-import CourseListView from "@/views/Course/CourseListView.vue";
-import UserLoginView from "@/views/User/UserLoginView.vue";
-import CommodityView from "@/views/Commodity/CommodityView.vue";
-import CommodityManageView from "@/views/Commodity/CommodityListView.vue";
-import CommodityAddView from "@/views/Commodity/CommodityAddView.vue";
-import CommodityDetailView from "@/views/Commodity/CommodityDetailView.vue";
-import UserInfoView from "@/views/User/UserInfoView.vue";
-import UserRegisterView from "@/views/User/UserRegisterView.vue";
-import OrderView from "@/views/Order/OrderView.vue";
-import OrderFarmView from "@/views/Order/OrderFarmView.vue";
-import OrderUserView from "@/views/Order/OrderUserView.vue";
+import UserViewTabbarLayout from "@/layouts/UserViewTabbarLayout.vue";
+import UserIndexView from "@/views/UserViews/UserIndexView.vue";
+import FarmViewTabbarLayout from "@/layouts/FarmViewTabbarLayout.vue";
+import FarmIndexView from "@/views/FarmerViews/FarmIndexView.vue";
+import BasicPageLayout from "@/layouts/BasicPageLayout.vue";
+
+import HomeView from "@/views/UserViews/Home/HomeView.vue";
+import FarmView from "@/views/UserViews/Farm/FarmView.vue";
+import ShopView from "@/views/UserViews/Shop/ShopView.vue";
+import CommunityView from "@/views/UserViews/Community/CommunityView.vue";
+import UserCenterView from "@/views/UserViews/Center/CenterView.vue";
+import UserInfoView from "@/views/UserViews/Center/UserInfoView.vue";
+
+import FarmCenterView from "@/views/FarmerViews/Center/CenterView.vue";
+import CommodityListView from "@/views/FarmerViews/Commodity/CommodityListView.vue";
+import CommodityAddView from "@/views/FarmerViews/Commodity/CommodityAddView.vue";
+
+import LoginView from "@/views/LoginView.vue";
+import RegisterView from "@/views/RegisterView.vue";
+import AboutView from "@/views/UserViews/About/AboutView.vue";
+import MonitorView from "@/views/UserViews/Monitor/MonitorView.vue";
+import AssistantView from "@/views/UserViews/Assistant/AssistantView.vue";
+import CourseTypeListView from "@/views/UserViews/Course/CourseTypeListView.vue";
+import CourseListView from "@/views/UserViews/Course/CourseListView.vue";
+import CommodityDetailView from "@/views/CommodityDetailView.vue";
 
 const routes: Array<RouteRecordRaw> = [
-  { path: "", redirect: "/home" },
+  { path: "", redirect: "/user/index/home" },
+  // 用户版路由
   {
-    path: "/",
-    component: BasicLayout,
+    path: "/user",
+    component: UserIndexView,
     children: [
-      { path: "home", component: HomeView, meta: { title: "首页" } },
-      { path: "farm", component: FarmView, meta: { title: "农场中心" } },
-      { path: "shop", component: ShopView, meta: { title: "云闽商城" } },
+      { path: "", redirect: "/user/index/home" },
       {
-        path: "community",
-        component: CommunityView,
-        meta: { title: "社区交流" },
+        path: "index",
+        component: UserViewTabbarLayout,
+        children: [
+          { path: "", redirect: "/user/index/home" },
+          { path: "home", component: HomeView, meta: { title: "首页" } },
+          { path: "farm", component: FarmView, meta: { title: "农场中心" } },
+          { path: "shop", component: ShopView, meta: { title: "云闽商城" } },
+          {
+            path: "community",
+            component: CommunityView,
+            meta: { title: "社区交流" },
+          },
+          {
+            path: "center",
+            component: UserCenterView,
+            meta: {
+              title: "小金主个人中心",
+            },
+          },
+        ],
       },
-      { path: "user", component: UserView, meta: { title: "个人中心" } },
-      { path: "", redirect: "/" },
+      {
+        path: "self",
+        component: BasicPageLayout,
+        children: [
+          {
+            path: "info",
+            component: UserInfoView,
+            meta: {
+              title: "用户信息",
+            },
+          },
+        ],
+      },
     ],
   },
+  // 羊场主版路由
+  {
+    path: "/farm",
+    component: FarmIndexView,
+    children: [
+      { path: "", redirect: "/farm/index/center" },
+      {
+        path: "index",
+        component: FarmViewTabbarLayout,
+        children: [
+          { path: "", redirect: "/farm/index/center" },
+          {
+            path: "center",
+            component: FarmCenterView,
+            meta: { title: "羊场主中心" },
+          },
+        ],
+      },
+      {
+        path: "commodity",
+        component: BasicPageLayout,
+        children: [
+          {
+            path: "manage",
+            component: CommodityListView,
+            meta: { title: "商品管理" },
+          },
+          {
+            path: "add",
+            component: CommodityAddView,
+            meta: { title: "添加商品" },
+          },
+        ],
+      },
+    ],
+  },
+  // 其它页面路由
   {
     path: "/",
-    component: PageLayout,
+    component: BasicPageLayout,
     children: [
+      { path: "", redirect: "/user/index/home" },
       { path: "about", component: AboutView, meta: { title: "关于" } },
       { path: "monitor", component: MonitorView, meta: { title: "数据监控" } },
       {
@@ -63,59 +131,21 @@ const routes: Array<RouteRecordRaw> = [
         meta: { title: "课程列表" },
       },
       {
-        path: "commodity",
-        component: CommodityView,
-        children: [
-          {
-            path: "list",
-            component: CommodityManageView,
-            meta: { title: "商品管理" },
-          },
-          {
-            path: "add",
-            component: CommodityAddView,
-            meta: { title: "添加商品" },
-          },
-          {
-            path: "detail/:commodityId",
-            component: CommodityDetailView,
-            meta: { title: "商品详情" },
-          },
-        ],
+        path: "commodity/:commodityId",
+        component: CommodityDetailView,
+        meta: { title: "商品详情" },
       },
-      {
-        path: "self",
-        component: UserInfoView,
-        meta: { title: "用户信息" },
-      },
-      {
-        path: "/order",
-        component: OrderView,
-        children: [
-          {
-            path: "user",
-            component: OrderUserView,
-            meta: { title: "我的订单" },
-          },
-          {
-            path: "farm",
-            component: OrderFarmView,
-            meta: { title: "我的订单" },
-          },
-        ],
-      },
-      {
-        path: "register",
-        component: UserRegisterView,
-        meta: { title: "注册" },
-      },
-      { path: "", redirect: "/" },
     ],
   },
   {
     path: "/login",
-    component: UserLoginView,
+    component: LoginView,
     meta: { title: "登录" },
+  },
+  {
+    path: "/register",
+    component: RegisterView,
+    meta: { title: "注册" },
   },
 ];
 
