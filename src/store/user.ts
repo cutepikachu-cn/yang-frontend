@@ -20,6 +20,7 @@ export const useUserStore = defineStore("user", () => {
     UserControllerService.userLogin(userLoginRequest)
       .then((res) => {
         if (res.code !== 0) {
+          currentUser.value = null;
           showFailToast("登陆失败");
           return;
         }
@@ -35,6 +36,7 @@ export const useUserStore = defineStore("user", () => {
   };
 
   const userLogout = async () => {
+    currentUser.value = null;
     await UserControllerService.userLogout();
     const redirectURL = window.location.href;
     router.replace(`/login?redirectURL=${redirectURL}`);
