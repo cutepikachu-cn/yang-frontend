@@ -52,7 +52,7 @@ export class OrderControllerService {
    * @returns BaseResponsePageOrderVO OK
    * @throws ApiError
    */
-  public static pageOrderVoFarm(
+  public static pageOrderVo(
     requestBody: OrderQueryRequest
   ): CancelablePromise<BaseResponsePageOrderVO> {
     return __request(OpenAPI, {
