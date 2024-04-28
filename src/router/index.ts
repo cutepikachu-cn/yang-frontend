@@ -23,7 +23,8 @@ import MonitorView from "@/views/FarmerViews/Monitor/MonitorView.vue";
 import ToolboxView from "@/views/FarmerViews/ToolBox/ToolboxView.vue";
 
 import LoginView from "@/views/LoginView.vue";
-import RegisterView from "@/views/RegisterView.vue";
+import UserRegisterView from "@/views/UserRegisterView.vue";
+import FarmRegisterView from "@/views/FarmRegisterView.vue";
 import AboutView from "@/views/About/AboutView.vue";
 import AssistantView from "@/views/Assistant/AssistantView.vue";
 import CourseTypeListView from "@/views/Course/CourseTypeListView.vue";
@@ -169,9 +170,14 @@ const routes: Array<RouteRecordRaw> = [
     meta: { title: "登录" },
   },
   {
-    path: "/register",
-    component: RegisterView,
-    meta: { title: "注册" },
+    path: "/farm/register",
+    component: FarmRegisterView,
+    meta: { title: "羊场主注册（入驻）" },
+  },
+  {
+    path: "/user/register",
+    component: UserRegisterView,
+    meta: { title: "小金主注册" },
   },
 ];
 

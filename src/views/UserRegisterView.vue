@@ -16,7 +16,7 @@ const userRegisterRequest = ref<UserRegisterRequest>({
   userPassword: "",
   checkPassword: "",
   userNickname: "",
-  userRole: "",
+  userRole: "user",
 });
 
 const onSubmit = lodash.throttle(
@@ -32,9 +32,9 @@ const onSubmit = lodash.throttle(
       userPassword: "",
       checkPassword: "",
       userNickname: "",
-      userRole: "",
+      userRole: "user",
     };
-    router.replace("/login");
+    router.replace("/login?role=user");
     showSuccessToast("注册成功");
   },
   1000,
@@ -55,89 +55,6 @@ const onSubmit = lodash.throttle(
       </router-link>
     </div>
     <van-tabs v-model:active="active" animated swipeable>
-      <van-tab title="羊场主注册" name="farm">
-        <van-form @submit="onSubmit">
-          <van-cell-group inset>
-            <van-field
-              v-model="userRegisterRequest.userAccount"
-              name="userAccount"
-              label="账户"
-              placeholder="请输入账户"
-              required
-              size="large"
-              :rules="[
-                { required: true, message: '请填写账户', trigger: 'onBlur' },
-                {
-                  pattern: /^[\w-]{4,16}$/,
-                  message: '用户名必须为4-16位字母、数字或`-`',
-                  trigger: 'onBlur',
-                },
-              ]"
-            />
-            <van-field
-              v-model="userRegisterRequest.userPassword"
-              type="password"
-              name="userPassword"
-              label="密码"
-              placeholder="请输入密码"
-              required
-              size="large"
-              :rules="[
-                { required: true, message: '请填写密码', trigger: 'onBlur' },
-                {
-                  pattern: /^[\w-]{6,20}$/,
-                  message: '密码必须为6-20位字母、数字或`-`',
-                  trigger: 'onBlur',
-                },
-              ]"
-            />
-            <van-field
-              v-model="userRegisterRequest.checkPassword"
-              type="password"
-              name="checkPassword"
-              label="确认密码"
-              placeholder="请再次输入密码"
-              required
-              size="large"
-              :rules="[
-                { required: true, message: '请填写密码', trigger: 'onBlur' },
-                {
-                  message: '两次输入不一致',
-                  trigger: 'onChange',
-                  validator: (val) => val === userRegisterRequest.userPassword,
-                },
-              ]"
-            />
-            <van-field
-              v-model="userRegisterRequest.userNickname"
-              name="userNickname"
-              label="昵称"
-              placeholder="请输入昵称"
-              required
-              size="large"
-              :rules="[
-                { required: true, message: '请填写密码', trigger: 'onBlur' },
-                {
-                  message: '昵称为4~20个字符',
-                  trigger: 'onBlur',
-                  validator: (val) => 4 <= val.length && val.length <= 20,
-                },
-              ]"
-            />
-          </van-cell-group>
-          <div style="margin: 16px">
-            <van-button
-              round
-              class="rounded-xl"
-              block
-              type="primary"
-              native-type="submit"
-            >
-              注册
-            </van-button>
-          </div>
-        </van-form>
-      </van-tab>
       <van-tab title="小金主注册" name="user">
         <van-form @submit="onSubmit">
           <van-cell-group inset>
@@ -224,7 +141,7 @@ const onSubmit = lodash.throttle(
     </van-tabs>
     <router-link
       class="text-primary text-sm self-end px-4"
-      :to="'/login?role=' + active"
+      :to="`/login?role=${active}`"
     >
       去登录
     </router-link>
