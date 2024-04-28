@@ -74,42 +74,14 @@ const onLoad = async () => {
     </template>
   </van-search>
 
-  <van-row align="center" justify="space-around" class="mt-2">
-    <van-col span="10">
-      <van-button
-        type="primary"
-        round
-        plain
-        text="数据监测"
-        size="large"
-        to="/farm/monitor"
-        class="w-full shadow-md shadow-primary/50"
-      />
-    </van-col>
-    <van-col span="10">
-      <van-button
-        type="primary"
-        round
-        plain
-        text="双向社区"
-        size="large"
-        class="w-full shadow-md shadow-primary/50"
-      />
-    </van-col>
-  </van-row>
-  <van-row align="center" justify="space-around" class="my-2">
-    <van-col span="10">
-      <van-button
-        type="primary"
-        round
-        plain
-        text="医疗服务"
-        size="large"
-        to="/assistant"
-        class="w-full shadow-md shadow-primary/50"
-      />
-    </van-col>
-    <van-col span="10">
+  <van-row
+    align="center"
+    justify="space-around"
+    :gutter="[0, 10]"
+    class="my-2"
+    wrap
+  >
+    <van-col span="11">
       <van-button
         type="primary"
         round
@@ -117,6 +89,16 @@ const onLoad = async () => {
         text="联系客服"
         size="large"
         to="/assistant"
+        class="w-full shadow-md shadow-primary/50"
+      />
+    </van-col>
+    <van-col span="11">
+      <van-button
+        type="primary"
+        round
+        plain
+        text="双向社区"
+        size="large"
         class="w-full shadow-md shadow-primary/50"
       />
     </van-col>
