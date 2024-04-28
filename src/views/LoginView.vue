@@ -15,7 +15,7 @@ const userAccount = ref("cutepikachu");
 const userPassword = ref("cutepikachu");
 const onSubmit = lodash.throttle(
   (values: UserLoginRequest) => {
-    userLogin(values, redirectUrl);
+    userLogin(values);
   },
   1000,
   {

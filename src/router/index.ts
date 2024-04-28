@@ -12,33 +12,35 @@ import ShopView from "@/views/UserViews/Shop/ShopView.vue";
 import CommunityView from "@/views/UserViews/Community/CommunityView.vue";
 import UserCenterView from "@/views/UserViews/Center/CenterView.vue";
 import UserInfoView from "@/views/UserViews/Center/UserInfoView.vue";
+import UserOrderListView from "@/views/UserViews/Order/UserOrderListView.vue";
 
 import FarmCenterView from "@/views/FarmerViews/Center/CenterView.vue";
+import InfoView from "@/views/FarmerViews/Center/InfoView.vue";
 import CommodityListView from "@/views/FarmerViews/Commodity/CommodityListView.vue";
 import CommodityAddView from "@/views/FarmerViews/Commodity/CommodityAddView.vue";
 
 import LoginView from "@/views/LoginView.vue";
 import RegisterView from "@/views/RegisterView.vue";
-import AboutView from "@/views/UserViews/About/AboutView.vue";
-import MonitorView from "@/views/UserViews/Monitor/MonitorView.vue";
-import AssistantView from "@/views/UserViews/Assistant/AssistantView.vue";
-import CourseTypeListView from "@/views/UserViews/Course/CourseTypeListView.vue";
-import CourseListView from "@/views/UserViews/Course/CourseListView.vue";
+import AboutView from "@/views/About/AboutView.vue";
+import MonitorView from "@/views/FarmerViews/Monitor/MonitorView.vue";
+import AssistantView from "@/views/Assistant/AssistantView.vue";
+import CourseTypeListView from "@/views/Course/CourseTypeListView.vue";
+import CourseListView from "@/views/Course/CourseListView.vue";
 import CommodityDetailView from "@/views/CommodityDetailView.vue";
 
 const routes: Array<RouteRecordRaw> = [
-  { path: "", redirect: "/user/index/home" },
+  { path: "", redirect: "/user/home" },
   // 用户版路由
   {
     path: "/user",
     component: UserIndexView,
     children: [
-      { path: "", redirect: "/user/index/home" },
+      { path: "", redirect: "/user/home" },
       {
-        path: "index",
+        path: "",
         component: UserViewTabbarLayout,
         children: [
-          { path: "", redirect: "/user/index/home" },
+          { path: "", redirect: "/user/home" },
           { path: "home", component: HomeView, meta: { title: "首页" } },
           { path: "farm", component: FarmView, meta: { title: "农场中心" } },
           { path: "shop", component: ShopView, meta: { title: "云闽商城" } },
@@ -57,15 +59,18 @@ const routes: Array<RouteRecordRaw> = [
         ],
       },
       {
-        path: "self",
+        path: "",
         component: BasicPageLayout,
         children: [
           {
-            path: "info",
+            path: "self",
             component: UserInfoView,
-            meta: {
-              title: "用户信息",
-            },
+            meta: { title: "用户信息" },
+          },
+          {
+            path: "order/manage",
+            component: UserOrderListView,
+            meta: { title: "我的订单" },
           },
         ],
       },
@@ -76,12 +81,12 @@ const routes: Array<RouteRecordRaw> = [
     path: "/farm",
     component: FarmIndexView,
     children: [
-      { path: "", redirect: "/farm/index/center" },
+      { path: "", redirect: "/farm/center" },
       {
-        path: "index",
+        path: "",
         component: FarmViewTabbarLayout,
         children: [
-          { path: "", redirect: "/farm/index/center" },
+          { path: "", redirect: "/farm/center" },
           {
             path: "center",
             component: FarmCenterView,
@@ -90,16 +95,26 @@ const routes: Array<RouteRecordRaw> = [
         ],
       },
       {
-        path: "commodity",
+        path: "",
         component: BasicPageLayout,
         children: [
           {
-            path: "manage",
+            path: "self",
+            component: InfoView,
+            meta: { title: "羊场主信息" },
+          },
+          {
+            path: "monitor",
+            component: MonitorView,
+            meta: { title: "数据监控" },
+          },
+          {
+            path: "commodity/manage",
             component: CommodityListView,
             meta: { title: "商品管理" },
           },
           {
-            path: "add",
+            path: "commodity/add",
             component: CommodityAddView,
             meta: { title: "添加商品" },
           },
@@ -112,9 +127,8 @@ const routes: Array<RouteRecordRaw> = [
     path: "/",
     component: BasicPageLayout,
     children: [
-      { path: "", redirect: "/user/index/home" },
+      { path: "", redirect: "/user/home" },
       { path: "about", component: AboutView, meta: { title: "关于" } },
-      { path: "monitor", component: MonitorView, meta: { title: "数据监控" } },
       {
         path: "assistant",
         component: AssistantView,

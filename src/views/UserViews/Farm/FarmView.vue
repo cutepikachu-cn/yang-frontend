@@ -82,7 +82,7 @@ const onLoad = async () => {
         plain
         text="数据监测"
         size="large"
-        to="/monitor"
+        to="/farm/monitor"
         class="w-full shadow-md shadow-primary/50"
       />
     </van-col>

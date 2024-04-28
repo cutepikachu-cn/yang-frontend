@@ -71,7 +71,6 @@ const onSelect = (
 
     <div class="func w-full">
       <van-row align="center" justify="space-around" :gutter="[10, 10]" wrap>
-        <!--todo 羊场主信息跳转-->
         <van-col span="12">
           <van-button
             type="primary"
@@ -80,6 +79,7 @@ const onSelect = (
             size="large"
             text="羊场主信息"
             class="w-full shadow-md shadow-primary/20"
+            to="/farm/self"
           />
         </van-col>
         <van-col span="12">

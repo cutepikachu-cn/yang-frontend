@@ -13,10 +13,7 @@ export const useUserStore = defineStore("user", () => {
 
   const router = useRouter();
 
-  const userLogin = (
-    userLoginRequest: UserLoginRequest,
-    redirectUrl: string
-  ) => {
+  const userLogin = (userLoginRequest: UserLoginRequest) => {
     UserControllerService.userLogin(userLoginRequest)
       .then((res) => {
         if (res.code !== 0) {
@@ -25,11 +22,7 @@ export const useUserStore = defineStore("user", () => {
           return;
         }
         currentUser.value = res.data;
-        if (redirectUrl) {
-          window.location.href = redirectUrl;
-          return;
-        }
-        router.replace(`/${currentUser.value?.userRole}/index/center`);
+        router.replace(`/${currentUser.value?.userRole}/center`);
       })
       .catch(() => {
         showFailToast("登陆失败");

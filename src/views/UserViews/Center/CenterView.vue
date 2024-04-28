@@ -81,7 +81,7 @@ const onSelect = (
             size="large"
             text="用户信息"
             class="w-full shadow-md shadow-primary/20"
-            to="/user/self/info"
+            to="/user/self"
           />
         </van-col>
         <van-col span="12">
@@ -90,7 +90,7 @@ const onSelect = (
             round
             plain
             size="large"
-            text="订单管理"
+            text="我的订单"
             class="w-full shadow-md shadow-primary/20"
           />
         </van-col>

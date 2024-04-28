@@ -7,27 +7,27 @@ const { userViewActiveTab } = storeToRefs(useTabbarStore());
 const tabItemList = [
   {
     title: "农场中心",
-    to: "/user/index/farm",
+    to: "/user/farm",
     iconClassPrefix: "fa-regular fa-farm",
   },
   {
     title: "云闽商城",
-    to: "/user/index/shop",
+    to: "/user/shop",
     iconClassPrefix: "fa-regular fa-shop",
   },
   {
     title: "首页",
-    to: "/user/index/home",
+    to: "/user/home",
     iconClassPrefix: "fa-regular fa-house",
   },
   {
     title: "社区交流",
-    to: "/user/index/community",
+    to: "/user/community",
     iconClassPrefix: "fa-regular fa-messages",
   },
   {
     title: "个人中心",
-    to: "/user/index/center",
+    to: "/user/center",
     iconClassPrefix: "fa-regular fa-user",
   },
 ];
