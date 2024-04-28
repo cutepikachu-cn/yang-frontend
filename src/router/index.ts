@@ -18,6 +18,7 @@ import FarmCenterView from "@/views/FarmerViews/Center/CenterView.vue";
 import InfoView from "@/views/FarmerViews/Center/InfoView.vue";
 import CommodityListView from "@/views/FarmerViews/Commodity/CommodityListView.vue";
 import CommodityAddView from "@/views/FarmerViews/Commodity/CommodityAddView.vue";
+import FarmOrderListView from "@/views/FarmerViews/Order/FarmOrderListView.vue";
 
 import LoginView from "@/views/LoginView.vue";
 import RegisterView from "@/views/RegisterView.vue";
@@ -117,6 +118,11 @@ const routes: Array<RouteRecordRaw> = [
             path: "commodity/add",
             component: CommodityAddView,
             meta: { title: "添加商品" },
+          },
+          {
+            path: "order/manage",
+            component: FarmOrderListView,
+            meta: { title: "订单管理" },
           },
         ],
       },

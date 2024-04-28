@@ -90,6 +90,7 @@ const onSelect = (
             size="large"
             text="订单管理"
             class="w-full shadow-md shadow-primary/20"
+            to="/farm/order/manage"
           />
         </van-col>
         <van-col span="12">
