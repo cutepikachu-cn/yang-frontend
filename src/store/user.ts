@@ -41,13 +41,11 @@ export const useUserStore = defineStore("user", () => {
       return currentUser.value;
     }
     const res = await UserControllerService.getLoginUser();
-    // console.log(res);
     if (res.code === 0) {
       currentUser.value = res.data;
     } else {
       currentUser.value = null;
-      const redirectURL = window.location.href;
-      router.replace(`/login?redirectURL=${redirectURL}`);
+      router.replace("/login");
     }
     return currentUser.value;
   };

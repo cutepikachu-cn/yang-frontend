@@ -14,7 +14,7 @@ const userInfo = ref<LoginUserVO>({});
 onMounted(async () => {
   userInfo.value = (await getLoginUser()) || {};
   if (userInfo.value.userRole !== "user") {
-    showFailToast("不是小金主！\n请前往\n登录或注册");
+    showFailToast("请登录！");
     router.replace("/login?role=user");
   }
 });
@@ -92,6 +92,7 @@ const onSelect = (
             size="large"
             text="我的订单"
             class="w-full shadow-md shadow-primary/20"
+            to="/user/order/manage"
           />
         </van-col>
       </van-row>

@@ -7,11 +7,10 @@ import lodash from "lodash";
 
 const { userLogin } = useUserStore();
 const route = useRoute();
-const redirectUrl = route.query.redirectURL as string;
 
 const active = ref((route.query.role as string) === "farm" ? 1 : 0);
 
-const userAccount = ref("cutepikachu");
+const userAccount = ref("user-test");
 const userPassword = ref("cutepikachu");
 const onSubmit = lodash.throttle(
   (values: UserLoginRequest) => {
