@@ -20,7 +20,7 @@ const userInfo = ref<LoginUserVO>({});
 onMounted(async () => {
   userInfo.value = (await getLoginUser()) || {};
   if (userInfo.value.userRole !== "farm") {
-    showFailToast("不是羊场主！\n请前往\n登录或注册");
+    showFailToast("请登录！");
     router.replace("/login?role=farm");
   }
 });
