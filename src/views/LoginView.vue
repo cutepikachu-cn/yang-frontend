@@ -27,7 +27,7 @@ const onSubmit = lodash.throttle(
   <div
     class="login w-screen h-screen align-center flex flex-col justify-center"
   >
-    <div class="px-2">
+    <div class="px-2 absolute left-0 top-0">
       <router-link to="/user" class="text-primary text-sm">
         <van-icon class-prefix="fa-regular fa-home" />
         回到首页
