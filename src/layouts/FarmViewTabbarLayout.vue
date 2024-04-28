@@ -6,6 +6,11 @@ const { farmViewActiveTab } = storeToRefs(useTabbarStore());
 
 const tabItemList = [
   {
+    title: "羊场主工具",
+    to: "/farm/toolbox",
+    iconClassPrefix: "fa-regular fa-toolbox",
+  },
+  {
     title: "羊场主中心",
     to: "/farm/center",
     iconClassPrefix: "fa-regular fa-farm",

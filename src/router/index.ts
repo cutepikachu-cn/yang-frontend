@@ -19,11 +19,12 @@ import InfoView from "@/views/FarmerViews/Center/InfoView.vue";
 import CommodityListView from "@/views/FarmerViews/Commodity/CommodityListView.vue";
 import CommodityAddView from "@/views/FarmerViews/Commodity/CommodityAddView.vue";
 import FarmOrderListView from "@/views/FarmerViews/Order/FarmOrderListView.vue";
+import MonitorView from "@/views/FarmerViews/Monitor/MonitorView.vue";
+import ToolboxView from "@/views/FarmerViews/ToolBox/ToolboxView.vue";
 
 import LoginView from "@/views/LoginView.vue";
 import RegisterView from "@/views/RegisterView.vue";
 import AboutView from "@/views/About/AboutView.vue";
-import MonitorView from "@/views/FarmerViews/Monitor/MonitorView.vue";
 import AssistantView from "@/views/Assistant/AssistantView.vue";
 import CourseTypeListView from "@/views/Course/CourseTypeListView.vue";
 import CourseListView from "@/views/Course/CourseListView.vue";
@@ -92,6 +93,11 @@ const routes: Array<RouteRecordRaw> = [
             path: "center",
             component: FarmCenterView,
             meta: { title: "羊场主中心" },
+          },
+          {
+            path: "toolbox",
+            component: ToolboxView,
+            meta: { title: "羊场主工具" },
           },
         ],
       },

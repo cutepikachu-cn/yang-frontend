@@ -3,7 +3,7 @@ import { ref } from "vue";
 
 export const useTabbarStore = defineStore("tabbar", () => {
   const userViewActiveTab = ref(2);
-  const farmViewActiveTab = ref(0);
+  const farmViewActiveTab = ref(1);
 
   return { userViewActiveTab, farmViewActiveTab };
 });
