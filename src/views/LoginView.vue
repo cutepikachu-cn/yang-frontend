@@ -8,7 +8,7 @@ import lodash from "lodash";
 const { userLogin } = useUserStore();
 const route = useRoute();
 
-const active = ref((route.query.role as string) === "farm" ? 1 : 0);
+const active = ref((route.query.role as string) === "farm" ? "farm" : "user");
 
 const userAccount = ref("user-test");
 const userPassword = ref("cutepikachu");
@@ -34,7 +34,7 @@ const onSubmit = lodash.throttle(
       </router-link>
     </div>
     <van-tabs v-model:active="active" animated swipeable>
-      <van-tab title="羊场主登录">
+      <van-tab title="羊场主登录" name="farm">
         <van-icon
           class-prefix="fa-regular fa-farm fa-5x fa-flip"
           style="--fa-animation-duration: 3s"
@@ -89,7 +89,7 @@ const onSubmit = lodash.throttle(
           </div>
         </van-form>
       </van-tab>
-      <van-tab title="小金主登录">
+      <van-tab title="小金主登录" name="user">
         <van-icon
           class-prefix="fa-regular fa-user fa-5x fa-flip"
           style="--fa-animation-duration: 3s"
@@ -145,8 +145,11 @@ const onSubmit = lodash.throttle(
         </van-form>
       </van-tab>
     </van-tabs>
-    <router-link class="text-primary text-sm self-end px-4" to="/register"
-      >去注册
+    <router-link
+      class="text-primary text-sm self-end px-4"
+      :to="'/register?role=' + active"
+    >
+      去注册
     </router-link>
   </div>
 </template>

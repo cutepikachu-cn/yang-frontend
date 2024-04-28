@@ -3,11 +3,13 @@ import { ref } from "vue";
 import { UserControllerService, UserRegisterRequest } from "@/modules/api";
 import lodash from "lodash";
 import { showFailToast, showSuccessToast } from "vant";
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
+
+const route = useRoute();
+
+const active = ref((route.query.role as string) === "user" ? "user" : "farm");
 
 const router = useRouter();
-
-const active = ref(0);
 
 const userRegisterRequest = ref<UserRegisterRequest>({
   userAccount: "",
@@ -53,7 +55,7 @@ const onSubmit = lodash.throttle(
       </router-link>
     </div>
     <van-tabs v-model:active="active" animated swipeable>
-      <van-tab title="羊场主注册">
+      <van-tab title="羊场主注册" name="farm">
         <van-form @submit="onSubmit">
           <van-cell-group inset>
             <van-field
@@ -136,7 +138,7 @@ const onSubmit = lodash.throttle(
           </div>
         </van-form>
       </van-tab>
-      <van-tab title="小金主注册">
+      <van-tab title="小金主注册" name="user">
         <van-form @submit="onSubmit">
           <van-cell-group inset>
             <van-field
@@ -220,8 +222,11 @@ const onSubmit = lodash.throttle(
         </van-form>
       </van-tab>
     </van-tabs>
-    <router-link class="text-primary text-sm self-end px-4" to="/login"
-      >去登录
+    <router-link
+      class="text-primary text-sm self-end px-4"
+      :to="'/login?role=' + active"
+    >
+      去登录
     </router-link>
   </div>
 </template>
