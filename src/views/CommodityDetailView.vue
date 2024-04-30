@@ -40,7 +40,12 @@ onMounted(async () => {
       <div class="data">
         <div class="price-and-stock text-md flex justify-between items-end">
           <span class="text-warning">
-            ￥<span class="text-2xl">{{ commodity.price }}</span>
+            ￥<span class="text-2xl">
+              {{ commodity.price?.toFixed(2).split(".")[0] }}.<span
+                class="text-xl"
+                >{{ commodity.price?.toFixed(2).split(".")[1] }}</span
+              >
+            </span>
           </span>
           <span class="text-gray-500">库存: {{ commodity.stock }}</span>
         </div>
@@ -48,9 +53,8 @@ onMounted(async () => {
           class="visit-and-share text-sm text-gray-500 flex justify-between items-end"
         >
           <span>
-            <van-icon class-prefix="fa-regular fa-eye" class="mx-1" />{{
-              commodity.visitNum
-            }}
+            <van-icon class-prefix="fa-regular fa-eye" class="mx-1" />
+            {{ commodity.visitNum }}
           </span>
           <span>
             <van-icon
@@ -93,25 +97,34 @@ onMounted(async () => {
     <div
       class="fixed inset-x-0 bottom-0 p-1 shadow-2xl flex flex-row items-center justify-between"
     >
-      <div class="icon flex-1 flex flex-row items-center justify-around">
+      <div
+        class="icon flex-1 flex flex-row items-center justify-around divide-x"
+      >
         <div
           class="shop van-haptics-feedback flex flex-col items-center text-xs"
         >
-          <van-icon class-prefix="fa-regular fa-shop" class="text-lg" />
+          <van-icon
+            class-prefix="fa-regular fa-shop"
+            class="text-lg leading-tight"
+          />
           <span>店铺</span>
         </div>
-        <van-divider vertical />
         <div
           class="collect van-haptics-feedback flex flex-col items-center text-xs"
         >
-          <van-icon class-prefix="fa-regular fa-headset" class="text-lg" />
+          <van-icon
+            class-prefix="fa-regular fa-headset"
+            class="text-lg leading-tight"
+          />
           <span>咨询</span>
         </div>
-        <van-divider vertical />
         <div
           class="collect van-haptics-feedback flex flex-col items-center text-xs"
         >
-          <van-icon class-prefix="fa-regular fa-star" class="text-lg" />
+          <van-icon
+            class-prefix="fa-regular fa-star"
+            class="text-lg leading-tight"
+          />
           <span>收藏</span>
         </div>
       </div>
