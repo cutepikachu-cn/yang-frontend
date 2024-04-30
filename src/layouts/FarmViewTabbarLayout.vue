@@ -1,26 +1,43 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import { storeToRefs } from "pinia";
 import { useTabbarStore } from "@/store/tabbar";
 
 const { farmViewActiveTab } = storeToRefs(useTabbarStore());
 
-const tabItemList = [
+const items = [
   {
+    index: 0,
     title: "羊场主工具",
     to: "/farm/toolbox",
+    icon: `fa-toolbox`,
     iconClassPrefix: "fa-regular fa-toolbox",
   },
   {
+    index: 1,
     title: "社区交流",
     to: "/farm/community",
+    icon: "fa-messages",
     iconClassPrefix: "fa-regular fa-messages",
   },
   {
+    index: 2,
     title: "羊场主中心",
     to: "/farm/center",
+    icon: "fa-farm",
     iconClassPrefix: "fa-regular fa-farm",
   },
 ];
+
+const tabItemList = computed(() => {
+  items.map((item, index) => {
+    item.iconClassPrefix =
+      (index === farmViewActiveTab.value ? "fa-duotone" : "fa-regular") +
+      " " +
+      item.icon;
+  });
+  return items;
+});
 </script>
 
 <template>

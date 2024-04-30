@@ -12,6 +12,7 @@ import "vant/es/image-preview/style";
 import "./main.scss";
 import "@/assets/FontAwesome/css/fontawesome.min.css";
 import "@/assets/FontAwesome/css/regular.min.css";
+import "@/assets/FontAwesome/css/duotone.min.css";
 
 const app = createApp(App);
 

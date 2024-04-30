@@ -1,36 +1,52 @@
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
 import { useTabbarStore } from "@/store/tabbar";
+import { computed } from "vue";
 
 const { userViewActiveTab } = storeToRefs(useTabbarStore());
 
-const tabItemList = [
+const items = [
   {
     title: "农场中心",
     to: "/user/farm",
+    icon: "fa-farm",
     iconClassPrefix: "fa-regular fa-farm",
   },
   {
     title: "云闽商城",
     to: "/user/shop",
+    icon: "fa-shop",
     iconClassPrefix: "fa-regular fa-shop",
   },
   {
     title: "首页",
     to: "/user/home",
+    icon: "fa-house",
     iconClassPrefix: "fa-regular fa-house",
   },
   {
     title: "社区交流",
     to: "/user/community",
+    icon: "fa-messages",
     iconClassPrefix: "fa-regular fa-messages",
   },
   {
     title: "个人中心",
     to: "/user/center",
+    icon: "fa-user",
     iconClassPrefix: "fa-regular fa-user",
   },
 ];
+
+const tabItemList = computed(() => {
+  items.map((item, index) => {
+    item.iconClassPrefix =
+      (index === userViewActiveTab.value ? "fa-duotone" : "fa-regular") +
+      " " +
+      item.icon;
+  });
+  return items;
+});
 </script>
 
 <template>
