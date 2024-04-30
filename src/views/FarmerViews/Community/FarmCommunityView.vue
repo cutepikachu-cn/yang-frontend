@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import GroupItem from "./components/GroupItem.vue";
+import GroupItem from "@/components/GroupItem.vue";
 
 const active = ref(0);
 
@@ -46,26 +46,10 @@ const onLoad = () => {
   </van-row>
   <van-tabs v-model:active="active" shrink>
     <van-tab title="常用">
-      <van-cell title="课程" is-link center size="large" to="/course">
-        <template #icon>
-          <van-icon
-            class-prefix="fa-regular fa-book fa-3x"
-            class="mr-2 text-success"
-          />
-        </template>
-      </van-cell>
       <van-cell title="发现" is-link center size="large">
         <template #icon>
           <van-icon
             class-prefix="fa-regular fa-file-magnifying-glass fa-3x"
-            class="mr-2 text-success"
-          />
-        </template>
-      </van-cell>
-      <van-cell title="分析" is-link center size="large">
-        <template #icon>
-          <van-icon
-            class-prefix="fa-regular fa-chart-mixed fa-3x"
             class="mr-2 text-success"
           />
         </template>

@@ -9,7 +9,7 @@ import BasicPageLayout from "@/layouts/BasicPageLayout.vue";
 import HomeView from "@/views/UserViews/Home/HomeView.vue";
 import FarmView from "@/views/UserViews/Farm/FarmView.vue";
 import ShopView from "@/views/UserViews/Shop/ShopView.vue";
-import CommunityView from "@/views/UserViews/Community/CommunityView.vue";
+import UserCommunityView from "@/views/UserViews/Community/UserCommunityView.vue";
 import UserCenterView from "@/views/UserViews/Center/CenterView.vue";
 import UserInfoView from "@/views/UserViews/Center/UserInfoView.vue";
 import UserOrderListView from "@/views/UserViews/Order/UserOrderListView.vue";
@@ -21,6 +21,7 @@ import CommodityAddView from "@/views/FarmerViews/Commodity/CommodityAddView.vue
 import FarmOrderListView from "@/views/FarmerViews/Order/FarmOrderListView.vue";
 import MonitorView from "@/views/FarmerViews/Monitor/MonitorView.vue";
 import ToolboxView from "@/views/FarmerViews/ToolBox/ToolboxView.vue";
+import FarmCommunityView from "@/views/FarmerViews/Community/FarmCommunityView.vue";
 
 import LoginView from "@/views/LoginView.vue";
 import UserRegisterView from "@/views/UserRegisterView.vue";
@@ -49,7 +50,7 @@ const routes: Array<RouteRecordRaw> = [
           { path: "shop", component: ShopView, meta: { title: "云闽商城" } },
           {
             path: "community",
-            component: CommunityView,
+            component: UserCommunityView,
             meta: { title: "社区交流" },
           },
           {
@@ -99,6 +100,11 @@ const routes: Array<RouteRecordRaw> = [
             path: "toolbox",
             component: ToolboxView,
             meta: { title: "羊场主工具" },
+          },
+          {
+            path: "community",
+            component: FarmCommunityView,
+            meta: { title: "社区交流" },
           },
         ],
       },

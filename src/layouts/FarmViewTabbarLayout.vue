@@ -11,6 +11,11 @@ const tabItemList = [
     iconClassPrefix: "fa-regular fa-toolbox",
   },
   {
+    title: "社区交流",
+    to: "/farm/community",
+    iconClassPrefix: "fa-regular fa-messages",
+  },
+  {
     title: "羊场主中心",
     to: "/farm/center",
     iconClassPrefix: "fa-regular fa-farm",

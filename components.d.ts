@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     CardItem: typeof import('./src/components/CardItem.vue')['default']
+    GroupItem: typeof import('./src/components/GroupItem.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     VanBadge: typeof import('vant/es')['Badge']
