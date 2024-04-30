@@ -25,7 +25,7 @@ const toDetail = () => {
     class="rounded-2xl overflow-hidden shadow-primary/30 shadow-md"
     @click="toDetail"
   >
-    <van-image fit="cover" :src="imgUrl[0]" class="w-full h-48" />
+    <van-image fit="cover" :src="imgUrl?.[0]" class="w-full h-48" />
     <div class="content px-1.5 pb-2">
       <h1 class="text-sm truncate">{{ name }}</h1>
       <div class="data flex flex-row h-4">

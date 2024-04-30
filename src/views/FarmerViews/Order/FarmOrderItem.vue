@@ -25,7 +25,7 @@ const onSelect = (action) => showToast(action.text);
       />
     </h2>
     <van-card
-      :thumb="commodity?.imgUrl[0]"
+      :thumb="commodity?.imgUrl?.[0]"
       :title="commodity?.name"
       :desc="commodity?.detail"
       :num="quantity"

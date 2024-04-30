@@ -97,7 +97,7 @@ const onLoad = async () => {
       :key="item.id"
       class="text-white text-center"
     >
-      <van-image :src="item.imgUrl[0]" fit="cover" class="w-full h-48" />
+      <van-image :src="item.imgUrl?.[0]" fit="cover" class="w-full h-48" />
     </van-swipe-item>
   </van-swipe>
 

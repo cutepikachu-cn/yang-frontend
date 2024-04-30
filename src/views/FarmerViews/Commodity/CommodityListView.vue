@@ -74,7 +74,7 @@ const onLoad = async () => {
       v-for="commodity in commodityList"
       :key="commodity.id"
       :title="commodity.name"
-      :thumb="commodity.imgUrl ? commodity.imgUrl[0] : ''"
+      :thumb="commodity.imgUrl?.[0]"
       :desc="commodity.detail"
       :price="commodity.price"
     />
