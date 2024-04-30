@@ -26,7 +26,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="commodity-detail divide-y">
+  <div class="commodity-detail divide-y-reverse p-2">
     <van-swipe :loop="false">
       <van-swipe-item
         v-for="(imgUrl, index) in commodity.imgUrl"
@@ -36,7 +36,7 @@ onMounted(async () => {
         <van-image :src="imgUrl" fit="cover" class="w-full h-64" />
       </van-swipe-item>
     </van-swipe>
-    <div class="commodity-info py-1 px-2 divide-y">
+    <div class="commodity-info py-1 divide-y">
       <div class="data">
         <div class="price-and-stock text-md flex justify-between items-end">
           <span class="text-warning">
@@ -66,6 +66,38 @@ onMounted(async () => {
       </div>
       <h1 class="name text-2xl">{{ commodity.name }}</h1>
       <p class="detail text-sm">{{ commodity.detail }}</p>
+    </div>
+
+    <div class="comments my-2 bg-neutral-50 rounded-xl p-1">
+      <div class="num flex flex-row justify-between items-center text-sm my-1">
+        <h1 class="font-bold">评价(300+)</h1>
+        <span class="text-xs text-gray-400"
+          >全部<van-icon class-prefix="fa-regular fa-chevron-right"
+        /></span>
+      </div>
+      <div class="comments-box">
+        <van-cell :title="commodity.shop?.userNickname" class="rounded-xl">
+          <template #icon>
+            <van-image
+              :src="commodity.shop?.userAvatar"
+              round
+              class="size-6 rounded-lg mx-1"
+            />
+          </template>
+          <template #label>
+            <p class="van-multi-ellipsis--l3">
+              {{ commodity.detail?.repeat(10) }}
+            </p>
+          </template>
+          <template #right-icon>
+            <van-image
+              :src="commodity.imgUrl?.[0]"
+              round
+              class="size-10 rounded-lg mx-1"
+            />
+          </template>
+        </van-cell>
+      </div>
     </div>
 
     <div
