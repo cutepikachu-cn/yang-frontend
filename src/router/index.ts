@@ -31,6 +31,7 @@ import AssistantView from "@/views/Assistant/AssistantView.vue";
 import CourseTypeListView from "@/views/Course/CourseTypeListView.vue";
 import CourseListView from "@/views/Course/CourseListView.vue";
 import CommodityDetailView from "@/views/CommodityDetailView.vue";
+import { useUserStore } from "@/store/user";
 
 const routes: Array<RouteRecordRaw> = [
   { path: "", redirect: "/user/home" },
@@ -51,13 +52,14 @@ const routes: Array<RouteRecordRaw> = [
           {
             path: "community",
             component: UserCommunityView,
-            meta: { title: "社区交流" },
+            meta: { title: "社区交流", access: "user" },
           },
           {
             path: "center",
             component: UserCenterView,
             meta: {
               title: "小金主个人中心",
+              access: "user",
             },
           },
         ],
@@ -69,12 +71,12 @@ const routes: Array<RouteRecordRaw> = [
           {
             path: "self",
             component: UserInfoView,
-            meta: { title: "用户信息" },
+            meta: { title: "用户信息", access: "user" },
           },
           {
             path: "order/manage",
             component: UserOrderListView,
-            meta: { title: "我的订单" },
+            meta: { title: "我的订单", access: "user" },
           },
         ],
       },
@@ -94,17 +96,17 @@ const routes: Array<RouteRecordRaw> = [
           {
             path: "center",
             component: FarmCenterView,
-            meta: { title: "羊场主中心" },
+            meta: { title: "羊场主中心", access: "farm" },
           },
           {
             path: "toolbox",
             component: ToolboxView,
-            meta: { title: "羊场主工具" },
+            meta: { title: "羊场主工具", access: "farm" },
           },
           {
             path: "community",
             component: FarmCommunityView,
-            meta: { title: "社区交流" },
+            meta: { title: "社区交流", access: "farm" },
           },
         ],
       },
@@ -115,27 +117,27 @@ const routes: Array<RouteRecordRaw> = [
           {
             path: "self",
             component: InfoView,
-            meta: { title: "羊场主信息" },
+            meta: { title: "羊场主信息", access: "farm" },
           },
           {
             path: "monitor",
             component: MonitorView,
-            meta: { title: "数据监控" },
+            meta: { title: "数据监控", access: "farm" },
           },
           {
             path: "commodity/manage",
             component: CommodityListView,
-            meta: { title: "商品管理" },
+            meta: { title: "商品管理", access: "farm" },
           },
           {
             path: "commodity/add",
             component: CommodityAddView,
-            meta: { title: "添加商品" },
+            meta: { title: "添加商品", access: "farm" },
           },
           {
             path: "order/manage",
             component: FarmOrderListView,
-            meta: { title: "订单管理" },
+            meta: { title: "订单管理", access: "farm" },
           },
         ],
       },
@@ -190,6 +192,21 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+});
+
+router.beforeEach(async (to, from, next) => {
+  const access = to.meta.access as string;
+  if (access) {
+    const { getLoginUser } = useUserStore();
+    const currentUser = await getLoginUser();
+    if (!currentUser || currentUser?.userRole !== access) {
+      next(`/login?role=${access}`);
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
 });
 
 export default router;

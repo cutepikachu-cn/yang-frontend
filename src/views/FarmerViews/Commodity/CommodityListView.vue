@@ -6,21 +6,13 @@ import {
   CommodityVO,
   LoginUserVO,
 } from "@/modules/api";
-import { showFailToast } from "vant";
 import { useUserStore } from "@/store/user";
-import { useRouter } from "vue-router";
 
 const { getLoginUser } = useUserStore();
-
-const router = useRouter();
 
 const userInfo = ref<LoginUserVO>({});
 onMounted(async () => {
   userInfo.value = (await getLoginUser()) || {};
-  if (userInfo.value.userRole !== "farm") {
-    showFailToast("请登录！");
-    router.replace("/login?role=farm");
-  }
 });
 
 const commodityList = ref<CommodityVO[]>([]);

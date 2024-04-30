@@ -3,7 +3,6 @@ import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useUserStore } from "@/store/user";
 import { LoginUserVO } from "@/modules/api";
-import { showFailToast } from "vant";
 
 const { getLoginUser, userLogout } = useUserStore();
 
@@ -13,10 +12,6 @@ const userInfo = ref<LoginUserVO>({});
 
 onMounted(async () => {
   userInfo.value = (await getLoginUser()) || {};
-  if (userInfo.value.userRole !== "farm") {
-    showFailToast("请登录！");
-    router.replace("/login?role=farm");
-  }
 });
 
 const actions = [{ text: "关于" }, { text: "退出登录" }];

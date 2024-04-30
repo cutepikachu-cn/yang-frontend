@@ -10,19 +10,12 @@ import lodash from "lodash";
 import { showFailToast, showSuccessToast } from "vant";
 
 import { useUserStore } from "@/store/user";
-import { useRouter } from "vue-router";
 
 const { getLoginUser } = useUserStore();
-
-const router = useRouter();
 
 const userInfo = ref<LoginUserVO>({});
 onMounted(async () => {
   userInfo.value = (await getLoginUser()) || {};
-  if (userInfo.value.userRole !== "farm") {
-    showFailToast("请登录！");
-    router.replace("/login?role=farm");
-  }
 });
 
 const fileValue = ref([]);
