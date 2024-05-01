@@ -126,6 +126,7 @@ onMounted(async () => {
       <van-button block round class="rounded-2xl">关注羊场</van-button>
     </div>
 
+    <div class="placeholder h-20" />
     <div
       class="fixed inset-x-0 bottom-0 p-1 shadow-2xl flex flex-row items-center justify-between"
     >
