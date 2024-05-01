@@ -104,7 +104,7 @@ const onLoad = async () => {
     </van-col>
   </van-row>
 
-  <van-cell title="养殖资源" center size="large">
+  <van-cell title="农场风貌" center size="large">
     <template #value>
       <van-dropdown-menu>
         <van-dropdown-item

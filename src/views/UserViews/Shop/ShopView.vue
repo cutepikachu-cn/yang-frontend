@@ -74,7 +74,7 @@ const onLoad = async () => {
     </template>
   </van-search>
 
-  <van-cell title="养殖资源" center size="large">
+  <van-cell title="优质羊肉" center size="large">
     <template #value>
       <van-dropdown-menu>
         <van-dropdown-item
