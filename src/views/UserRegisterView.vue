@@ -125,7 +125,7 @@ const onSubmit = lodash.throttle(
               ]"
             />
           </van-cell-group>
-          <div style="margin: 16px">
+          <div class="m-3">
             <van-button
               round
               class="rounded-xl"
