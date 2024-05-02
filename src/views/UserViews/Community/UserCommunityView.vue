@@ -58,27 +58,6 @@ const onLoad = () => {
     <van-tab title="推荐"> 推荐</van-tab>
   </van-tabs>
 
-  <van-row justify="space-around" align="center" class="my-2">
-    <van-col span="8">
-      <van-button
-        type="primary"
-        plain
-        text="附近场主"
-        size="large"
-        class="w-full shadow-inner shadow-primary/50"
-      />
-    </van-col>
-    <van-col span="8">
-      <van-button
-        type="primary"
-        plain
-        text="加盟我们"
-        size="large"
-        class="w-full shadow-inner shadow-primary/50"
-      />
-    </van-col>
-  </van-row>
-
   <van-list
     :loading="loading"
     :finished="finished"

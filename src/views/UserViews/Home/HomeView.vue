@@ -102,23 +102,23 @@ const onLoad = async () => {
   </van-swipe>
 
   <van-row justify="space-around" align="center" class="my-2">
-    <van-col span="8">
+    <van-col span="20">
       <van-button
         type="primary"
-        text="羊场主"
+        plain
         size="large"
         round
-        class="text-lg w-full shadow-md shadow-primary/50"
-      />
-    </van-col>
-    <van-col span="8">
-      <van-button
-        type="primary"
-        text="小金主"
-        size="large"
-        round
-        class="text-lg w-full shadow-md shadow-primary/50"
-      />
+        class="w-full shadow-inner shadow-primary/50 te"
+        to="/farm/register"
+      >
+        <div class="flex flex-row items-center justify-center text-lg">
+          <van-icon
+            class-prefix="fa-regular fa-handshake fa-beat-fade fa-2x"
+            class="mx-2"
+          />
+          羊场主？加盟我们！
+        </div>
+      </van-button>
     </van-col>
   </van-row>
 
