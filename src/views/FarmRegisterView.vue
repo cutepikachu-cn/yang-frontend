@@ -67,7 +67,12 @@ const onSubmit = lodash.throttle(
       Object.values(farmerInfoRef.value.getValidationStatus()).every(
         (value) => value === "passed"
       );
-    console.log(isValid);
+
+    if (!isValid) {
+      showFailToast("请正确填写信息");
+      return;
+    }
+
     const res = await UserControllerService.userRegister(
       userRegisterRequest.value
     );
