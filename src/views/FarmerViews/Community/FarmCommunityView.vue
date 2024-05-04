@@ -17,15 +17,11 @@ const groups = ref<
 const onLoad = () => {
   groups.value = [
     {
-      title: "厦门外地乡贤群",
+      title: "羊场主交流群1",
       avatar: "http://source.cute-pikachu.cn/img/default.webp",
     },
     {
-      title: "泉州外地乡贤群",
-      avatar: "http://source.cute-pikachu.cn/img/default.webp",
-    },
-    {
-      title: "泉州外地团购群",
+      title: "羊场主交流群2",
       avatar: "http://source.cute-pikachu.cn/img/default.webp",
     },
   ];
@@ -59,20 +55,11 @@ const onLoad = () => {
   </van-tabs>
 
   <van-row justify="space-around" align="center" class="my-2">
-    <van-col span="8">
+    <van-col span="12">
       <van-button
         type="primary"
         plain
         text="附近场主"
-        size="large"
-        class="w-full shadow-inner shadow-primary/50"
-      />
-    </van-col>
-    <van-col span="8">
-      <van-button
-        type="primary"
-        plain
-        text="加盟我们"
         size="large"
         class="w-full shadow-inner shadow-primary/50"
       />
