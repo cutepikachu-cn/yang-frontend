@@ -10,7 +10,9 @@ const route = useRoute();
 
 const active = ref((route.query.role as string) === "farm" ? "farm" : "user");
 
-const userAccount = ref("user-test");
+const userAccount = ref(
+  (route.query.role as string) === "farm" ? "farm-test" : "user-test"
+);
 const userPassword = ref("cutepikachu");
 const onSubmit = lodash.throttle(
   (values: UserLoginRequest) => {
@@ -21,6 +23,14 @@ const onSubmit = lodash.throttle(
     trailing: false,
   }
 );
+
+const onChange = (name: string | number) => {
+  if (name === "user") {
+    userAccount.value = "user-test";
+  } else if (name === "farm") {
+    userAccount.value = "farm-test";
+  }
+};
 </script>
 
 <template>
@@ -33,7 +43,7 @@ const onSubmit = lodash.throttle(
         回到首页
       </router-link>
     </div>
-    <van-tabs v-model:active="active" animated swipeable>
+    <van-tabs v-model:active="active" animated swipeable @change="onChange">
       <van-tab title="羊场主登录" name="farm">
         <van-icon
           class-prefix="fa-regular fa-farm fa-5x fa-flip"
