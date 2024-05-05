@@ -1,9 +1,19 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 import { storeToRefs } from "pinia";
 import { useTabbarStore } from "@/store/tabbar";
+import { useRoute } from "vue-router";
 
 const { farmViewActiveTab } = storeToRefs(useTabbarStore());
+
+const route = useRoute();
+
+onMounted(() => {
+  const activeTab = items.findIndex((item) => item.to === route.path);
+  if (activeTab !== -1) {
+    farmViewActiveTab.value = activeTab;
+  }
+});
 
 const items = [
   {
